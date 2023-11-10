@@ -1,0 +1,12 @@
+{
+	"ars_extended_pages.glyph_name.glyph_saturate": "Saturate",
+	"ars_extended_pages.glyph_desc.glyph_saturate": "Grants hunger saturation to target. Can be amplified to increase saturation given.",
+	"ars_extended_pages.glyph_name.glyph_summonwildlife": "Summon Wildlife",
+	"ars_extended_pages.glyph_desc.glyph_summonwildlife": "Summons three common animals nearby. Can be amplified to summon more at once.",
+
+	"itemGroup.ars_extended_pages": "Extended Pages",
+	"item.ars_extended_pages.magestone": "Magestone",
+	"item.ars_extended_pages.refined_magestone": "Refined Magestone",
+	"tooltip.refined_magestone": "Can be used as a Spell Focus.",
+	"tooltip2.refined_magestone": "Stacks up to 16, for a total of +80 Max Mana."
+}

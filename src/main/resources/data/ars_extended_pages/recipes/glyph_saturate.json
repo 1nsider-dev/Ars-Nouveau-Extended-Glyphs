@@ -1,0 +1,33 @@
+{
+  "type": "ars_nouveau:glyph",
+  "count": 1,
+  "exp": 55,
+  "inputItems": [
+    {
+      "item": {
+        "item": "ars_nouveau:abjuration_essence"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:bread"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:bread"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:bread"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:golden_apple"
+      }
+    }
+  ],
+  "output": "ars_extended_pages:glyph_saturate"
+}
