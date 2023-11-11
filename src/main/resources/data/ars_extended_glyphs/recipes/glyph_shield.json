@@ -1,0 +1,28 @@
+{
+  "type": "ars_nouveau:glyph",
+  "count": 1,
+  "exp": 55,
+  "inputItems": [
+    {
+      "item": {
+        "item": "ars_nouveau:abjuration_essence"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:blaze_rod"
+      }
+    },
+    {
+      "item": {
+        "item": "ars_extended_glyphs:magestone"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:shield"
+      }
+    }
+  ],
+  "output": "ars_extended_glyphs:glyph_shield"
+}

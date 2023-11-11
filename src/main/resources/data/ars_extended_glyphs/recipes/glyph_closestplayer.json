@@ -1,0 +1,28 @@
+{
+  "type": "ars_nouveau:glyph",
+  "count": 1,
+  "exp": 160,
+  "inputItems": [
+    {
+      "item": {
+        "item": "ars_nouveau:source_gem"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:compass"
+      }
+    },
+    {
+      "item": {
+        "item": "ars_extended_glyphs:refined_magestone"
+      }
+    },
+    {
+      "item": {
+        "item": "ars_extended_glyphs:refined_magestone"
+      }
+    }
+  ],
+  "output": "ars_extended_glyphs:glyph_closestplayer"
+}

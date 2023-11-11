@@ -1,0 +1,18 @@
+{
+	"ars_extended_glyphs.glyph_name.glyph_saturate": "Saturate",
+	"ars_extended_glyphs.glyph_desc.glyph_saturate": "Grants hunger saturation to target. Can be amplified to increase saturation given.",
+	"ars_extended_glyphs.glyph_name.glyph_summonwildlife": "Summon Wildlife",
+	"ars_extended_glyphs.glyph_desc.glyph_summonwildlife": "Summons three common animals nearby. Can be amplified to summon more at once.",
+	"ars_extended_glyphs.glyph_name.glyph_shield": "Protect",
+	"ars_extended_glyphs.glyph_desc.glyph_shield": "Grants heavy damage resistance for a brief moment. Protection period can be extended.",
+	"ars_extended_glyphs.glyph_name.glyph_absorption": "Absorption",
+	"ars_extended_glyphs.glyph_desc.glyph_absorption": "Grants temporary extra hearts, up to an extra bar. Amount given can be increased with Amplify.",
+	"ars_extended_glyphs.glyph_name.glyph_closestplayer": "Nearest Player",
+	"ars_extended_glyphs.glyph_desc.glyph_closestplayer": "Targets the closest player that isn't you.",
+
+	"itemGroup.ars_extended_glyphs": "Extended Glyphs",
+	"item.ars_extended_glyphs.magestone": "Magestone",
+	"item.ars_extended_glyphs.refined_magestone": "Refined Magestone",
+	"tooltip.refined_magestone": "Can be used as a Spell Focus.",
+	"tooltip2.refined_magestone": "Stacks up to 16, for a total of +80 Max Mana."
+}

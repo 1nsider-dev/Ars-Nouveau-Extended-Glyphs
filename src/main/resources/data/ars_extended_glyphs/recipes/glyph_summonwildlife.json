@@ -1,0 +1,38 @@
+{
+  "type": "ars_nouveau:glyph",
+  "count": 1,
+  "exp": 160,
+  "inputItems": [
+    {
+      "item": {
+        "item": "ars_nouveau:conjuration_essence"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:hay_block"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:golden_carrot"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:bone_meal"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:bone_meal"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:bone_meal"
+      }
+    }
+  ],
+  "output": "ars_extended_glyphs:glyph_summonwildlife"
+}

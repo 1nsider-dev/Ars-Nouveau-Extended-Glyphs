@@ -14,11 +14,11 @@ license="GNU Lesser General Public License v3.0"
 # A list of mods - how many allowed here is determined by the individual mod loader
 [[mods]] #mandatory
 # The modid of the mod
-modId="ars_extended_pages" #mandatory
+modId="ars_extended_glyphs" #mandatory
 # The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
 version="${file.jarVersion}" #mandatory
  # A display name for the mod
-displayName="Ars Nouveau - Extended Pages" #mandatory
+displayName="Ars Nouveau - Extended Glyphs" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification <here>
 #updateJSONURL="http://myurl.me/" #optional
 # A URL for the "homepage" for this mod, displayed in the mod UI
@@ -31,10 +31,11 @@ credits="Thank you, baileyholl2, for Ars Nouveau!" #optional
 authors="1nsider" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-Adds a handful of mild glyphs and support for extra spellbook pages!
+Adds a handful of new glyphs!
+Also utilizes a new mineral, Magestone, to create glyphs and more!
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
-[[dependencies.ars_extended_pages]] #optional
+[[dependencies.ars_extended_glyphs]] #optional
     # the modid of the dependency
     modId="forge" #mandatory
     # Does this dependency have to exist - if not, ordering below must be specified
@@ -46,21 +47,21 @@ Adds a handful of mild glyphs and support for extra spellbook pages!
     # Side this dependency is applied on - BOTH, CLIENT or SERVER
     side="BOTH"
 # Here's another dependency
-[[dependencies.ars_extended_pages]]
+[[dependencies.ars_extended_glyphs]]
     modId="patchouli"
     mandatory=true
     versionRange="[1.18.1-61,)"
     ordering="AFTER"
     side="BOTH"
 
-[[dependencies.ars_extended_pages]]
+[[dependencies.ars_extended_glyphs]]
     modId="curios"
     mandatory=true
     versionRange="[1.18.1-5.0.3.0,)"
     ordering="AFTER"
     side="BOTH"
 
-[[dependencies.ars_extended_pages]]
+[[dependencies.ars_extended_glyphs]]
     modId="ars_nouveau"
     mandatory=true
     versionRange="[2.5.0,)"
