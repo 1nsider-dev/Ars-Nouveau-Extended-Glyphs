@@ -1,15 +1,24 @@
-# Ars-Nouveau-Example-Addon
+# Ars Nouveau - Extended Glyphs
 
-An example repository for making an addon for Ars Nouveau! See the wiki for more info.
+Extended Glyphs is an early-in-development extension to Ars Nouveau that add a handful of (likely poorly balanced) glyphs. It also adds a new material, Magestone, which is used in a handful of recipes and pieces of equipment.
 
-**Getting Started**
+Many of the glyphs added are more chaotic than not, and serve more to diversify potential spells rather than simply improving already existing combos.
 
-* Fork this repo for a ready to build work space.
-* Join the Ars Nouveau discord to ask questions, get help, or get ideas.
+ 
 
-Some useful links for beginners:
-* https://mcforge.readthedocs.io/en/latest/
-* https://forge.gemwire.uk/wiki/
-* https://wiki.mcjty.eu/modding/index.php?title=Main_Page
-* https://github.com/baileyholl/Ars-Nouveau/tree/1.18.x/src/main/java/com/hollingsworth/arsnouveau/api (Full API documentation)
-* https://github.com/bernie-g/geckolib/wiki (Animation library used by Ars Nouveau, optional)
+Also, this was made for a group of friends (and myself), so most of the balancing here is just based on what we deem fun or not.
+
+ 
+Requirements
+
+Ars Nouveau
+
+Wow!
+
+ 
+Additions
+
+    Magestone (and Refined Magestone) - A material obtained via the use of Ars Nouveau's enchanting system on a Source Gem Block and a Lapis Lazuli Block. It can be used as a material for certain glyphs in this form, but it can be refined into a versatile crafting material and spell focus.
+    Spell Effects - 10 unique effects that (as far as I know) only exist here. Probably for a good reason, though.
+    More Spell Forms/Augments - We added a whopping ONE form and ONE augment! And the augment is used by only TWO effects! Hopefully, though, this mod will see more forms and augments that fit its gimmicky nature.
+    Herobrine
