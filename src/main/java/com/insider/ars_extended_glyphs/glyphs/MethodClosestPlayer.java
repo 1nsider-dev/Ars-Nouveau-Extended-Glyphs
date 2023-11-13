@@ -55,7 +55,7 @@ public class MethodClosestPlayer extends AbstractCastMethod {
     }
     @Override
     public CastResolveType onCast(@Nullable ItemStack stack, LivingEntity playerEntity, Level world, SpellStats spellStats, SpellContext context, SpellResolver resolver) {
-        Player nearestPlayer = getNearestPlayer(playerEntity, world, 5000, EntitySelector.NO_CREATIVE_OR_SPECTATOR);
+        Player nearestPlayer = getNearestPlayer(playerEntity, world, 256, EntitySelector.NO_CREATIVE_OR_SPECTATOR);
         if (nearestPlayer!=null) {
             resolver.onResolveEffect(playerEntity.getCommandSenderWorld(), new EntityHitResult(nearestPlayer));
             Networking.sendToNearby(playerEntity.level, playerEntity, new PacketANEffect(PacketANEffect.EffectType.TIMED_HELIX, playerEntity.blockPosition()));
@@ -92,6 +92,11 @@ public class MethodClosestPlayer extends AbstractCastMethod {
 
     @Override
     public SpellTier defaultTier() {
+        return SpellTier.TWO;
+    }
+
+    @Override
+    public SpellTier getConfigTier() {
         return SpellTier.TWO;
     }
 }

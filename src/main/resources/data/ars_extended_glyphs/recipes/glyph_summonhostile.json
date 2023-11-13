@@ -1,0 +1,33 @@
+{
+  "type": "ars_nouveau:glyph",
+  "count": 1,
+  "exp": 160,
+  "inputItems": [
+    {
+      "item": {
+        "item": "ars_nouveau:conjuration_essence"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:blaze_rod"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:egg"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:creeper_head"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:zombie_head"
+      }
+    }
+  ],
+  "output": "ars_extended_glyphs:glyph_summonhostile"
+}

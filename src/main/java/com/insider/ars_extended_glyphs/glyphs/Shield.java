@@ -3,6 +3,8 @@ package com.insider.ars_extended_glyphs.glyphs;
 import com.hollingsworth.arsnouveau.api.spell.*;
 import com.hollingsworth.arsnouveau.common.spell.augment.AugmentExtendTime;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
@@ -37,7 +39,7 @@ public class Shield extends AbstractEffect {
                 return;
 
             entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, GENERIC_INT.get()+((int)spellStats.getDurationMultiplier()*5), 5), shooter);
-
+            world.playSound(null, entity.blockPosition(), SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.NEUTRAL, 1.0f, 1.0f);
         }
     }
 

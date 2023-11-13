@@ -3,6 +3,8 @@ package com.insider.ars_extended_glyphs.glyphs;
 import com.hollingsworth.arsnouveau.api.spell.*;
 import com.hollingsworth.arsnouveau.common.spell.augment.AugmentAmplify;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -25,7 +27,7 @@ public class Saturate extends AbstractEffect {
 
     @Override
     public int getDefaultManaCost() {
-        return 110;
+        return 80;
     }
 
     @Override
@@ -40,6 +42,7 @@ public class Saturate extends AbstractEffect {
             if(entity instanceof Player player){
                 var foodData = player.getFoodData();
                 foodData.setSaturation(foodData.getSaturationLevel()+healVal);
+                world.playSound(null, player.blockPosition(), SoundEvents.GENERIC_EAT, SoundSource.NEUTRAL, 1.0f, 1.0f);
             }
 
         }

@@ -1,0 +1,33 @@
+{
+  "type": "ars_nouveau:glyph",
+  "count": 1,
+  "exp": 55,
+  "inputItems": [
+    {
+      "item": {
+        "item": "ars_nouveau:manipulation_essence"
+      }
+    },
+    {
+      "item": {
+        "item": "ars_nouveau:glyph_self"
+      }
+    },
+    {
+      "item": {
+        "item": "ars_nouveau:source_gem_block"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:redstone"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:glowstone_dust"
+      }
+    }
+  ],
+  "output": "ars_extended_glyphs:glyph_transmute"
+}

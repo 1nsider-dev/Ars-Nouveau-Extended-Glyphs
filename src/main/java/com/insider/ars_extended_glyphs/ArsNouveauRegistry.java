@@ -17,6 +17,14 @@ public class ArsNouveauRegistry {
         register(Shield.INSTANCE);
         register(Absorption.INSTANCE);
         register(MethodClosestPlayer.INSTANCE);
+        register(Transmute.INSTANCE);
+        register(Burrow.INSTANCE);
+        register(SummonHostile.INSTANCE);
+        register(AugmentExtreme.INSTANCE);
+        register(CreateSource.INSTANCE);
+        register(Repair.INSTANCE);
+
+        register(Herobrine.INSTANCE);
     }
     public static void register(AbstractSpellPart spellPart){
         ArsNouveauAPI.getInstance().registerSpell(spellPart);
