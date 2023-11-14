@@ -2,7 +2,6 @@ package com.insider.ars_extended_glyphs.registry;
 
 import com.insider.ars_extended_glyphs.item.CTab;
 import com.insider.ars_extended_glyphs.item.RefinedMagestone;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;

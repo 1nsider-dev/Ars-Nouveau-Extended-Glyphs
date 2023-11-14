@@ -23,6 +23,9 @@ public class ArsNouveauRegistry {
         register(AugmentExtreme.INSTANCE);
         register(CreateSource.INSTANCE);
         register(Repair.INSTANCE);
+        register(ReturnHome.INSTANCE);
+
+        register(TargetSelf.INSTANCE);
 
         register(Herobrine.INSTANCE);
     }
