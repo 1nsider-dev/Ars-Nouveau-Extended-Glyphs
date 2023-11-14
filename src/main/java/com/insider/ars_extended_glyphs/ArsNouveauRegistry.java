@@ -25,6 +25,7 @@ public class ArsNouveauRegistry {
         register(Repair.INSTANCE);
         register(ReturnHome.INSTANCE);
         register(SetHome.INSTANCE);
+        register(ConjureLava.INSTANCE);
 
         register(TargetSelf.INSTANCE);
 
