@@ -25,8 +25,10 @@
 	"ars_extended_glyphs.glyph_desc.glyph_repair": "Resets the durability of the affected target's main hand tool (if it has one).",
 	"ars_extended_glyphs.glyph_name.glyph_targetself": "Target Self",
 	"ars_extended_glyphs.glyph_desc.glyph_targetself": "Causes all following spell effects to fire on the caster.",
-	"ars_extended_glyphs.glyph_name.glyph_returnhome": "Return Home",
+	"ars_extended_glyphs.glyph_name.glyph_returnhome": "Return to Spawn",
 	"ars_extended_glyphs.glyph_desc.glyph_returnhome": "Teleports an effected player back to their spawn point. Doesn't work on mobs, or if the player hasn't set a spawn point.",
+	"ars_extended_glyphs.glyph_name.glyph_sethome": "Set Spawn",
+	"ars_extended_glyphs.glyph_desc.glyph_sethome": "Sets the spawn for the caster at their given position.",
 
 	"itemGroup.ars_extended_glyphs": "Extended Glyphs",
 	"item.ars_extended_glyphs.magestone": "Magestone",

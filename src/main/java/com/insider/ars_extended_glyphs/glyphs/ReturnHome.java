@@ -41,10 +41,10 @@ public class ReturnHome extends AbstractEffect {
         if (rayTraceResult.getEntity() instanceof ServerPlayer player) {
             BlockPos homePos = player.getRespawnPosition();
             float homeYaw = player.getRespawnAngle();
-            ResourceKey<Level> homeDim = player.getRespawnDimension();
-            if (homePos!=null) {
+            ServerLevel homeDim = world.getServer().getLevel(player.getRespawnDimension());
+            if (homeDim!=null && homePos!=null) {
                 BlockPos prevPos = player.blockPosition();
-                player.teleportTo(world.getServer().overworld(), homePos.getX()+.5, homePos.getY()+.6D, homePos.getZ()+.5, homeYaw, 0f);
+                player.teleportTo(homeDim, homePos.getX()+.5, homePos.getY()+.6D, homePos.getZ()+.5, homeYaw, 0f);
                 world.playSound(null, prevPos, SoundEvents.PORTAL_TRAVEL, SoundSource.PLAYERS, 0.3F, 1.0F);
             }
         }

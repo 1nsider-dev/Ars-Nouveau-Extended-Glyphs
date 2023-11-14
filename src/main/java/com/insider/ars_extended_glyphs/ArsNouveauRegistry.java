@@ -24,6 +24,7 @@ public class ArsNouveauRegistry {
         register(CreateSource.INSTANCE);
         register(Repair.INSTANCE);
         register(ReturnHome.INSTANCE);
+        register(SetHome.INSTANCE);
 
         register(TargetSelf.INSTANCE);
 
