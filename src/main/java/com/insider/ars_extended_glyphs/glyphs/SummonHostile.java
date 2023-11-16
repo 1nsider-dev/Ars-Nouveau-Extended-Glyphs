@@ -4,6 +4,7 @@ import com.hollingsworth.arsnouveau.api.spell.*;
 import com.hollingsworth.arsnouveau.common.spell.augment.AugmentAOE;
 import com.hollingsworth.arsnouveau.common.spell.augment.AugmentAmplify;
 import com.hollingsworth.arsnouveau.common.spell.augment.AugmentDampen;
+import com.hollingsworth.arsnouveau.common.spell.augment.AugmentSensitive;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -60,7 +61,13 @@ public class SummonHostile extends AbstractEffect {
                 BlockPos blockpos = pos.offset(-2 + shooter.getRandom().nextInt(5), 1, -2 + shooter.getRandom().nextInt(5));
 
 
-                EntityType<?> type = spellStats.getBuffCount(AugmentExtreme.INSTANCE)>0 ? EntityType.CREEPER : entities[shooter.getRandom().nextInt(entities.length)];
+                int c = entities.length;
+                if (spellStats.getBuffCount(AugmentSensitive.INSTANCE) > 0){
+                    c -= 4;
+                }
+                EntityType<?> type = spellStats.getBuffCount(AugmentExtreme.INSTANCE)>0 ? EntityType.CREEPER : entities[
+                        shooter.getRandom().nextInt(c)];
+
                 type.spawn((ServerLevel) world, shooter.getItemInHand(InteractionHand.MAIN_HAND), (Player)shooter, blockpos, MobSpawnType.MOB_SUMMONED, false, false);
             }
             world.playSound(null, pos, SoundEvents.BEACON_DEACTIVATE, SoundSource.NEUTRAL, 1.0f, 0.8f);
@@ -70,7 +77,7 @@ public class SummonHostile extends AbstractEffect {
     @Nonnull
     @Override
     public Set<AbstractAugment> getCompatibleAugments() {
-        return augmentSetOf(AugmentAmplify.INSTANCE, AugmentDampen.INSTANCE, AugmentExtreme.INSTANCE);
+        return augmentSetOf(AugmentAmplify.INSTANCE, AugmentDampen.INSTANCE, AugmentExtreme.INSTANCE, AugmentSensitive.INSTANCE);
     }
 
     @Override

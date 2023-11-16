@@ -14,7 +14,7 @@
 	"ars_extended_glyphs.glyph_name.glyph_burrow": "Burrow",
 	"ars_extended_glyphs.glyph_desc.glyph_burrow": "Buries the target two blocks below. Amplify increases blocks dropped, Dampen decreases blocks dropped.",
 	"ars_extended_glyphs.glyph_name.glyph_summonhostile": "Summon Hostile",
-	"ars_extended_glyphs.glyph_desc.glyph_summonhostile": "Summons three common hostile mobs. Can be amplified/dampened twice to change amount summoned. Augmenting with Extreme spawns creepers.",
+	"ars_extended_glyphs.glyph_desc.glyph_summonhostile": "Summons three common hostile mobs. Can be amplified/dampened twice to change amount summoned. Augmenting with Extreme spawns creepers, with Sensitive spawns less uncommon mobs.",
 	"ars_extended_glyphs.glyph_name.glyph_extreme": "Extreme",
 	"ars_extended_glyphs.glyph_desc.glyph_extreme": "Increases chances for more dangerous or beneficial results from some spells. Very expensive.",
 	"ars_extended_glyphs.glyph_name.glyph_createsource": "Conjure Source",
