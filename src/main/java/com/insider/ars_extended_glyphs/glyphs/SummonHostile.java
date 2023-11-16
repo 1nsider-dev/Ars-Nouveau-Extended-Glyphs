@@ -63,7 +63,7 @@ public class SummonHostile extends AbstractEffect {
 
                 int c = entities.length;
                 if (spellStats.getBuffCount(AugmentSensitive.INSTANCE) > 0){
-                    c -= 4;
+                    c -= 5;
                 }
                 EntityType<?> type = spellStats.getBuffCount(AugmentExtreme.INSTANCE)>0 ? EntityType.CREEPER : entities[
                         shooter.getRandom().nextInt(c)];
