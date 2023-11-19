@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "ars_extended_glyphs:air_tablet",
+    "ars_extended_glyphs:water_tablet",
+    "ars_extended_glyphs:fire_tablet",
+    "ars_extended_glyphs:earth_tablet",
+    "ars_extended_glyphs:conjuration_tablet",
+    "ars_extended_glyphs:abjuration_tablet",
+    "ars_extended_glyphs:manipulation_tablet"
+  ]
+}

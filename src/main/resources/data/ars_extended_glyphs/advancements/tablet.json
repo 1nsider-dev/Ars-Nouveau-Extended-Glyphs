@@ -1,0 +1,37 @@
+{
+  "parent": "ars_extended_glyphs:refined_magestone",
+  "criteria": {
+    "has_tablet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ars_extended_glyphs:blank_tablet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "ars_extended_glyphs.adv.desc.has_tablet"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "ars_extended_glyphs:blank_tablet"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "ars_extended_glyphs.adv.title.has_tablet"
+    }
+  },
+  "requirements": [
+    [
+      "has_tablet"
+    ]
+  ]
+}

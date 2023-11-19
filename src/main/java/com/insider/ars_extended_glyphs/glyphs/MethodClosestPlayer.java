@@ -3,6 +3,7 @@ package com.insider.ars_extended_glyphs.glyphs;
 import com.hollingsworth.arsnouveau.api.spell.*;
 import com.hollingsworth.arsnouveau.common.network.Networking;
 import com.hollingsworth.arsnouveau.common.network.PacketANEffect;
+import com.hollingsworth.arsnouveau.common.spell.augment.AugmentAOE;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
@@ -87,7 +88,7 @@ public class MethodClosestPlayer extends AbstractCastMethod {
 
     @Override
     protected @NotNull Set<AbstractAugment> getCompatibleAugments() {
-        return augmentSetOf();
+        return augmentSetOf(AugmentAOE.INSTANCE);
     }
 
     @Override
