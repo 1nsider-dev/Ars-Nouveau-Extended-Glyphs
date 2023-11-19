@@ -1,12 +1,14 @@
 package com.insider.ars_extended_glyphs.registry;
 
+import com.hollingsworth.arsnouveau.api.ArsNouveauAPI;
+import com.hollingsworth.arsnouveau.api.ritual.AbstractRitual;
 import com.hollingsworth.arsnouveau.api.spell.SpellSchools;
-import com.insider.ars_extended_glyphs.Main;
 import com.insider.ars_extended_glyphs.item.CTab;
 import com.insider.ars_extended_glyphs.item.RefinedMagestone;
 import com.insider.ars_extended_glyphs.item.Tablet;
 import com.insider.ars_extended_glyphs.item.UselessTablet;
 import com.insider.ars_extended_glyphs.loot.AddItemModifier;
+import com.insider.ars_extended_glyphs.ritual.RitualDifficultyIncrease;
 import com.mojang.serialization.Codec;
 import net.minecraft.ChatFormatting;
 import net.minecraft.world.entity.EntityType;
@@ -27,13 +29,19 @@ public class ModRegistry {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, MODID);
     public static final DeferredRegister<Codec<? extends IGlobalLootModifier>> LOOT_MODIFIERS = DeferredRegister.create(ForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, MODID);
-
+    public static final AbstractRitual[] RITUALS = {
+            new RitualDifficultyIncrease()
+    };
 
     public static void registerRegistries(IEventBus bus){
         BLOCKS.register(bus);
         ITEMS.register(bus);
         ENTITIES.register(bus);
         LOOT_MODIFIERS.register(bus);
+
+        for (AbstractRitual rit : RITUALS){
+            ArsNouveauAPI.getInstance().registerRitual(rit);
+        }
     }
 
     private static final Item.Properties BasicProperty = new Item.Properties().tab(CTab.instance);

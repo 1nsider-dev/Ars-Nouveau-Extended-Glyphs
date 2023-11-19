@@ -1,8 +1,8 @@
 package com.insider.ars_extended_glyphs;
 
-import com.insider.ars_extended_glyphs.glyphs.*;
 import com.hollingsworth.arsnouveau.api.ArsNouveauAPI;
 import com.hollingsworth.arsnouveau.api.spell.AbstractSpellPart;
+import com.insider.ars_extended_glyphs.glyphs.*;
 
 import java.util.ArrayList;
 import java.util.List;

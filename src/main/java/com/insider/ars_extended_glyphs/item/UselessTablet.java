@@ -31,7 +31,7 @@ public class UselessTablet extends Item {
         if (InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), Minecraft.getInstance().options.keyShift.getKey().getValue())) {
             tooltip2.add(Component.translatable("tooltip.aeg.blank_tablet.detail"));
         }else{
-            tooltip2.add(Component.translatable("tooltip.aeg.blank_tablet.await"));
+            tooltip2.add(Component.translatable("tooltip.aeg.await"));
         }
     }
 }

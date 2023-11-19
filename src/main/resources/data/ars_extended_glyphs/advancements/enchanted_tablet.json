@@ -1,0 +1,46 @@
+{
+  "parent": "ars_extended_glyphs:tablet",
+  "criteria": {
+    "has_enchanted_tablet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ars_extended_glyphs:air_tablet",
+              "ars_extended_glyphs:water_tablet",
+              "ars_extended_glyphs:fire_tablet",
+              "ars_extended_glyphs:earth_tablet",
+              "ars_extended_glyphs:conjuration_tablet",
+              "ars_extended_glyphs:manipulation_tablet",
+              "ars_extended_glyphs:abjuration_tablet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "ars_extended_glyphs.adv.desc.has_enchanted_tablet"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "item": "ars_extended_glyphs:air_tablet"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "ars_extended_glyphs.adv.title.has_enchanted_tablet"
+    }
+  },
+  "requirements": [
+    [
+      "has_enchanted_tablet"
+    ]
+  ],
+  "rewards": {
+    "experience": 160
+  }
+}
