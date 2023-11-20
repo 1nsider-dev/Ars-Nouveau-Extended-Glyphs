@@ -11,6 +11,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LightningBolt;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.phys.Vec3;
@@ -27,12 +28,16 @@ public class RitualDifficultyIncrease extends AbstractRitual {
                     if (didConsumeItem(Items.FEATHER)) {
                         if (d==Difficulty.EASY){
                             BlockPos pos = tile.getBlockPos();
-                            LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(world);
-                            lightningbolt.setDamage(1000);
-                            lightningbolt.moveTo(Vec3.atBottomCenterOf(world.getNearestPlayer(pos.getX(), pos.getY(), pos.getZ(), 12, false).getOnPos()));
-                            world.addFreshEntity(lightningbolt);
-                            setFinished();
-                            return;
+                            Player nearestPlayer = world.getNearestPlayer(pos.getX(), pos.getY(), pos.getZ(), 12, false);
+
+                            if (nearestPlayer!=null) {
+                                LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(world);
+                                lightningbolt.setDamage(1000);
+                                lightningbolt.moveTo(Vec3.atBottomCenterOf(nearestPlayer.getOnPos()));
+                                world.addFreshEntity(lightningbolt);
+                                setFinished();
+                                return;
+                            }
                         }
                         switch (d) {
                             case NORMAL -> world.getServer().setDifficulty(Difficulty.EASY, false);
