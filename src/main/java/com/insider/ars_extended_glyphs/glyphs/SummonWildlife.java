@@ -1,11 +1,13 @@
 package com.insider.ars_extended_glyphs.glyphs;
 
 import com.hollingsworth.arsnouveau.api.spell.*;
+import com.hollingsworth.arsnouveau.common.potions.ModPotions;
 import com.hollingsworth.arsnouveau.common.spell.augment.AugmentAmplify;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobSpawnType;
@@ -45,7 +47,8 @@ public class SummonWildlife extends AbstractEffect {
     };
     @Override
     public void onResolve(HitResult rayTraceResult, Level world, @Nonnull LivingEntity shooter, SpellStats spellStats, SpellContext spellContext, SpellResolver resolver) {
-        super.onResolve(rayTraceResult, world, shooter, spellStats, spellContext, resolver);
+        if (!canSummon(shooter))
+            return;
 
         if (shooter instanceof Player){
             Vec3 vector3d = safelyGetHitPos(rayTraceResult);
@@ -54,9 +57,10 @@ public class SummonWildlife extends AbstractEffect {
                 BlockPos blockpos = pos.offset(-2 + shooter.getRandom().nextInt(5), 2, -2 + shooter.getRandom().nextInt(5));
 
                 EntityType<?> type = entities[shooter.getRandom().nextInt(entities.length)];
-                type.spawn((ServerLevel) world, shooter.getItemInHand(InteractionHand.MAIN_HAND), (Player)shooter, blockpos, MobSpawnType.MOB_SUMMONED, false, false);
+                type.spawn((ServerLevel) world, shooter.getItemInHand(InteractionHand.MAIN_HAND), (Player)shooter, blockpos, MobSpawnType.COMMAND, false, false);
             }
         }
+        shooter.addEffect(new MobEffectInstance(ModPotions.SUMMONING_SICKNESS_EFFECT.get(), (int) (600+200*spellStats.getAmpMultiplier())));
     }
 
 
@@ -64,6 +68,10 @@ public class SummonWildlife extends AbstractEffect {
     @Override
     public Set<AbstractAugment> getCompatibleAugments() {
         return augmentSetOf(AugmentAmplify.INSTANCE);
+    }
+    @Override
+    public int getAugmentLimit(ResourceLocation augmentTag) {
+        return 3;
     }
     @Override
     public SpellTier defaultTier() {

@@ -1,0 +1,37 @@
+{
+  "parent": "ars_nouveau:root",
+  "criteria": {
+    "has_refined_magestone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ars_extended_glyphs:refined_magestone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "ars_extended_glyphs.adv.desc.refined_magestone"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "ars_extended_glyphs:refined_magestone"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "ars_extended_glyphs.adv.title.refined_magestone"
+    }
+  },
+  "requirements": [
+    [
+      "has_refined_magestone"
+    ]
+  ]
+}

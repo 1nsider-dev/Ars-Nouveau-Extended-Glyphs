@@ -1,8 +1,11 @@
 package com.insider.ars_extended_glyphs;
 
+import com.hollingsworth.arsnouveau.api.event.SpellCastEvent;
+import com.insider.ars_extended_glyphs.item.Tablet;
 import com.insider.ars_extended_glyphs.registry.ModRegistry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -13,6 +16,9 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import top.theillusivec4.curios.Curios;
+import top.theillusivec4.curios.api.CuriosApi;
+import top.theillusivec4.curios.api.SlotResult;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(com.insider.ars_extended_glyphs.Main.MODID)
@@ -42,5 +48,4 @@ public class Main
     private void doClientStuff(final FMLClientSetupEvent event) {
 
     }
-
 }

@@ -55,7 +55,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                an_addon {
+                ars_extended_glyphs {
                     source sourceSets.main
                 }
             }
@@ -73,7 +73,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                an_addon {
+                ars_extended_glyphs {
                     source sourceSets.main
                 }
             }
@@ -92,7 +92,7 @@ minecraft {
             args '--mod', 'ars_extended_glyphs', '--all', '--output', file('src/generated/resources/'), "--existing", file('src/main/resources/')
 
             mods {
-                an_addon {
+                ars_extended_glyphs {
                     source sourceSets.main
                 }
             }
