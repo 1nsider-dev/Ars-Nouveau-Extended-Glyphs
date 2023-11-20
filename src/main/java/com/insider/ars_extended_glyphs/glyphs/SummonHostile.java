@@ -1,7 +1,7 @@
 package com.insider.ars_extended_glyphs.glyphs;
 
 import com.hollingsworth.arsnouveau.api.spell.*;
-import com.hollingsworth.arsnouveau.common.spell.augment.AugmentAOE;
+import com.hollingsworth.arsnouveau.common.potions.ModPotions;
 import com.hollingsworth.arsnouveau.common.spell.augment.AugmentAmplify;
 import com.hollingsworth.arsnouveau.common.spell.augment.AugmentDampen;
 import net.minecraft.core.BlockPos;
@@ -10,6 +10,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobSpawnType;
@@ -17,7 +18,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.common.ForgeConfigSpec;
 
 import javax.annotation.Nonnull;
 import java.util.Set;
@@ -50,7 +50,8 @@ public class SummonHostile extends AbstractEffect {
     };
     @Override
     public void onResolve(HitResult rayTraceResult, Level world, @Nonnull LivingEntity shooter, SpellStats spellStats, SpellContext spellContext, SpellResolver resolver) {
-        super.onResolve(rayTraceResult, world, shooter, spellStats, spellContext, resolver);
+        if (!canSummon(shooter))
+            return;
 
         if (shooter instanceof Player){
             Vec3 vector3d = safelyGetHitPos(rayTraceResult);
@@ -61,10 +62,12 @@ public class SummonHostile extends AbstractEffect {
 
 
                 EntityType<?> type = spellStats.getBuffCount(AugmentExtreme.INSTANCE)>0 ? EntityType.CREEPER : entities[shooter.getRandom().nextInt(entities.length)];
-                type.spawn((ServerLevel) world, shooter.getItemInHand(InteractionHand.MAIN_HAND), (Player)shooter, blockpos, MobSpawnType.MOB_SUMMONED, false, false);
+                type.spawn((ServerLevel) world, shooter.getItemInHand(InteractionHand.MAIN_HAND), (Player)shooter, blockpos, MobSpawnType.COMMAND, false, false);
             }
             world.playSound(null, pos, SoundEvents.BEACON_DEACTIVATE, SoundSource.NEUTRAL, 1.0f, 0.8f);
         }
+
+        shooter.addEffect(new MobEffectInstance(ModPotions.SUMMONING_SICKNESS_EFFECT.get(), (int) (800+200*spellStats.getAmpMultiplier())));
     }
 
     @Nonnull
