@@ -21,7 +21,7 @@ import static com.insider.ars_extended_glyphs.Main.prefix;
 
 public class SetHome extends AbstractEffect {
 
-    public static SetHome INSTANCE = new SetHome(prefix("glyph_sethome"), "Set Home");
+    public static SetHome INSTANCE = new SetHome(prefix("glyph_sethome"), "Set Spawn");
 
     public SetHome(ResourceLocation tag, String description) {
         super(tag, description);
@@ -36,7 +36,7 @@ public class SetHome extends AbstractEffect {
     public void onResolve(HitResult context, Level world, @NotNull LivingEntity shooter, SpellStats spellStats, SpellContext spellContext, SpellResolver resolver) {
         super.onResolve(context, world, shooter, spellStats, spellContext, resolver);
         if (shooter instanceof ServerPlayer player) {
-            player.setRespawnPosition(world.dimension(), player.blockPosition(), 0.0F, false, true);
+            player.setRespawnPosition(world.dimension(), player.blockPosition(), 0.0F, true, true);
         }
     }
 

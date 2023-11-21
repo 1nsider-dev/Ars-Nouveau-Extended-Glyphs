@@ -41,7 +41,15 @@ public class Saturate extends AbstractEffect {
             float healVal = (float) (GENERIC_DOUBLE.get() + AMP_VALUE.get() * spellStats.getAmpMultiplier());
             if(entity instanceof Player player){
                 var foodData = player.getFoodData();
-                foodData.setSaturation(foodData.getSaturationLevel()+healVal);
+
+                int maxSat = 20;
+                float curr = foodData.getSaturationLevel();
+                float toSet = curr+healVal;
+                if (toSet > maxSat) {
+                    toSet = Math.max(curr, maxSat);
+                }
+                foodData.setSaturation(toSet);
+
                 world.playSound(null, player.blockPosition(), SoundEvents.GENERIC_EAT, SoundSource.NEUTRAL, 1.0f, 1.0f);
             }
 

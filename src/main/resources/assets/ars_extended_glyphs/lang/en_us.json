@@ -31,6 +31,8 @@
 	"ars_extended_glyphs.glyph_desc.glyph_sethome": "Sets the spawn for the caster at their current position.",
 	"ars_extended_glyphs.glyph_name.glyph_conjurelava": "Conjure Lava",
 	"ars_extended_glyphs.glyph_desc.glyph_conjurelava": "Places lava at a location.",
+	"ars_extended_glyphs.glyph_name.glyph_warp": "Warp",
+	"ars_extended_glyphs.glyph_desc.glyph_warp": "Warps caster to saved location. Set the warp location by augmenting with Sensitive.",
 
 	"item.ars_extended_glyphs.magestone": "Magestone",
 	"item.ars_extended_glyphs.refined_magestone": "Refined Magestone",
@@ -47,6 +49,8 @@
 	"ars_extended_glyphs.ritual_desc.ritual_difficulty_increase": "Increases the world difficulty by one step. Augmenting with a feather reverses the step taken.",
 
 	"itemGroup.ars_extended_glyphs": "Extended Glyphs",
+
+	"ars_extended_glyphs.msg.set_warp": "Set warp position!",
 
 	"tooltip.aeg.await": "Hold Left Shift for more info.",
 	"tooltip.aeg.blank_tablet.detail": "These can be found in Jungle and Desert temples, dungeons, mansions, mineshafts, and near ruined portals.",

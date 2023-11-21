@@ -24,7 +24,7 @@ import static com.insider.ars_extended_glyphs.Main.prefix;
 
 public class ReturnHome extends AbstractEffect {
 
-    public static ReturnHome INSTANCE = new ReturnHome(prefix("glyph_returnhome"), "Return Home");
+    public static ReturnHome INSTANCE = new ReturnHome(prefix("glyph_returnhome"), "Return to Spawn");
 
     public ReturnHome(ResourceLocation tag, String description) {
         super(tag, description);
