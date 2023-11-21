@@ -1,0 +1,40 @@
+{
+  "parent": "ars_extended_glyphs:tablet",
+  "criteria": {
+    "has_bauble": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ars_extended_glyphs:air_tablet_fragment",
+              "ars_extended_glyphs:water_tablet_fragment",
+              "ars_extended_glyphs:fire_tablet_fragment",
+              "ars_extended_glyphs:earth_tablet_fragment"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "ars_extended_glyphs.adv.desc.has_bauble"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "ars_extended_glyphs:air_tablet_fragment"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "ars_extended_glyphs.adv.title.has_bauble"
+    }
+  },
+  "requirements": [
+    [
+      "has_bauble"
+    ]
+  ]
+}

@@ -61,7 +61,7 @@
 	"tooltip.aeg.blank_tablet.detail": "These can be found in Jungle and Desert temples, dungeons, mansions, mineshafts, and near ruined portals.",
 
 	"tooltip.aeg.blank_tablet": "A mysterious tablet from ages past...",
-	"tooltip.aeg.blank_tablet_f": "Now in pieces, it could probably make a good charm!",
+	"tooltip.aeg.blank_tablet_f": "Can be enchanted to create resistance charms.",
 	"tooltip.aeg.tablet": "Reduces the cost of glyphs in this school by 50 mana while equipped.",
 	"tooltip.aeg.tablet_warning": "Will have Curse of Binding upon taking!",
 	"tooltip.refined_magestone": "Can be used as a Spell Focus.",
@@ -77,6 +77,8 @@
 	"ars_extended_glyphs.adv.title.has_tablet": "From Ages Long Past",
 	"ars_extended_glyphs.adv.desc.has_tablet": "Find an Ancient Tablet",
 	"ars_extended_glyphs.adv.title.has_enchanted_tablet": "Class Specialty",
-	"ars_extended_glyphs.adv.desc.has_enchanted_tablet": "Enchant an Ancient Tablet with an element"
+	"ars_extended_glyphs.adv.desc.has_enchanted_tablet": "Enchant an Ancient Tablet with an element",
+	"ars_extended_glyphs.adv.title.has_bauble": "Resistance X",
+	"ars_extended_glyphs.adv.desc.has_bauble": "Create and enchant a Bauble for protection against an element"
 
 }

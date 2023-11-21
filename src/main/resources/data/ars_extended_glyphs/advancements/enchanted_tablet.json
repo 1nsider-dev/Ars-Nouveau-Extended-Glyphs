@@ -26,7 +26,7 @@
       "translate": "ars_extended_glyphs.adv.desc.has_enchanted_tablet"
     },
     "frame": "challenge",
-    "hidden": true,
+    "hidden": false,
     "icon": {
       "item": "ars_extended_glyphs:air_tablet"
     },
