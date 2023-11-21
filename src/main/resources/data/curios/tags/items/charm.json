@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "ars_extended_glyphs:air_tablet_fragment",
+    "ars_extended_glyphs:fire_tablet_fragment",
+    "ars_extended_glyphs:water_tablet_fragment",
+    "ars_extended_glyphs:earth_tablet_fragment"
+  ]
+}

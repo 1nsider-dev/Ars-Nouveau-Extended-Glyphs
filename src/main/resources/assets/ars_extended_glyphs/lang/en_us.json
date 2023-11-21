@@ -36,6 +36,7 @@
 
 	"item.ars_extended_glyphs.magestone": "Magestone",
 	"item.ars_extended_glyphs.refined_magestone": "Refined Magestone",
+
 	"item.ars_extended_glyphs.blank_tablet": "Ancient Tablet",
 	"item.ars_extended_glyphs.air_tablet": "Tablet of Air",
 	"item.ars_extended_glyphs.water_tablet": "Tablet of Water",
@@ -45,21 +46,31 @@
 	"item.ars_extended_glyphs.conjuration_tablet": "Tablet of Conjuration",
 	"item.ars_extended_glyphs.manipulation_tablet": "Tablet of Manipulation",
 
+	"item.ars_extended_glyphs.blank_tablet_fragment": "Dull Bauble",
+	"item.ars_extended_glyphs.air_tablet_fragment": "Air Bauble",
+	"item.ars_extended_glyphs.fire_tablet_fragment": "Fire Bauble",
+	"item.ars_extended_glyphs.water_tablet_fragment": "Water Bauble",
+	"item.ars_extended_glyphs.earth_tablet_fragment": "Earth Bauble",
+
 	"item.ars_extended_glyphs.ritual_difficulty_increase": "Difficulty",
 	"ars_extended_glyphs.ritual_desc.ritual_difficulty_increase": "Increases the world difficulty by one step. Augmenting with a feather reverses the step taken.",
 
 	"itemGroup.ars_extended_glyphs": "Extended Glyphs",
 
-	"ars_extended_glyphs.msg.set_warp": "Set warp position!",
-
 	"tooltip.aeg.await": "Hold Left Shift for more info.",
 	"tooltip.aeg.blank_tablet.detail": "These can be found in Jungle and Desert temples, dungeons, mansions, mineshafts, and near ruined portals.",
 
 	"tooltip.aeg.blank_tablet": "A mysterious tablet from ages past...",
+	"tooltip.aeg.blank_tablet_f": "Now in pieces, it could probably make a good charm!",
 	"tooltip.aeg.tablet": "Reduces the cost of glyphs in this school by 50 mana while equipped.",
 	"tooltip.aeg.tablet_warning": "Will have Curse of Binding upon taking!",
 	"tooltip.refined_magestone": "Can be used as a Spell Focus.",
 	"tooltip2.refined_magestone": "Stacks up to 16, for a total of +80 Max Mana.",
+
+	"tooltip.aeg.tablet_f.air": "Prevents fall damage at the cost of mana while equipped.",
+	"tooltip.aeg.tablet_f.fire": "Prevents fire and lava damage at the cost of mana while equipped.",
+	"tooltip.aeg.tablet_f.earth": "Prevents suffocation, slamming damage, and hot floors at the cost of mana while equipped.",
+	"tooltip.aeg.tablet_f.water": "Prevents drowning and dragon's breath damage at the cost of mana while equipped.",
 
 	"ars_extended_glyphs.adv.title.refined_magestone": "Refining Some Mage's Stone",
 	"ars_extended_glyphs.adv.desc.refined_magestone": "Acquire Refined Magestone",

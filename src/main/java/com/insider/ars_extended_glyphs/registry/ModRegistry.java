@@ -3,10 +3,7 @@ package com.insider.ars_extended_glyphs.registry;
 import com.hollingsworth.arsnouveau.api.ArsNouveauAPI;
 import com.hollingsworth.arsnouveau.api.ritual.AbstractRitual;
 import com.hollingsworth.arsnouveau.api.spell.SpellSchools;
-import com.insider.ars_extended_glyphs.item.CTab;
-import com.insider.ars_extended_glyphs.item.RefinedMagestone;
-import com.insider.ars_extended_glyphs.item.Tablet;
-import com.insider.ars_extended_glyphs.item.UselessTablet;
+import com.insider.ars_extended_glyphs.item.*;
 import com.insider.ars_extended_glyphs.loot.AddItemModifier;
 import com.insider.ars_extended_glyphs.ritual.RitualDifficultyIncrease;
 import com.mojang.serialization.Codec;
@@ -63,6 +60,12 @@ public class ModRegistry {
     public static final RegistryObject<Item> CONJURATION_TABLET = ITEMS.register("conjuration_tablet", () -> new Tablet(SpellSchools.CONJURATION));
     public static final RegistryObject<Item> MANIPULATION_TABLET = ITEMS.register("manipulation_tablet", () -> new Tablet(SpellSchools.MANIPULATION));
     public static final RegistryObject<Item> ABJURATION_TABLET = ITEMS.register("abjuration_tablet", () -> new Tablet(SpellSchools.ABJURATION));
+    //~Fragments
+    public static final RegistryObject<Item> BLANK_TABLET_FRAG = ITEMS.register("blank_tablet_fragment", UselessTabletFragment::new);
+    public static final RegistryObject<Item> AIR_TABLET_FRAG = ITEMS.register("air_tablet_fragment", () -> new TabletFragment(SpellSchools.ELEMENTAL_AIR));
+    public static final RegistryObject<Item> FIRE_TABLET_FRAG = ITEMS.register("fire_tablet_fragment", () -> new TabletFragment(SpellSchools.ELEMENTAL_FIRE));
+    public static final RegistryObject<Item> WATER_TABLET_FRAG = ITEMS.register("water_tablet_fragment", () -> new TabletFragment(SpellSchools.ELEMENTAL_WATER));
+    public static final RegistryObject<Item> EARTH_TABLET_FRAG = ITEMS.register("earth_tablet_fragment", () -> new TabletFragment(SpellSchools.ELEMENTAL_EARTH));
 
     public static final RegistryObject<Codec<? extends IGlobalLootModifier>> ADD_ITEM =
             LOOT_MODIFIERS.register("include_tablet", AddItemModifier.CODEC);
