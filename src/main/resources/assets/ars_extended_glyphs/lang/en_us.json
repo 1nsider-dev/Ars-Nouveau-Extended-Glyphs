@@ -31,8 +31,8 @@
 	"ars_extended_glyphs.glyph_desc.glyph_sethome": "Sets the spawn for the caster at their current position.",
 	"ars_extended_glyphs.glyph_name.glyph_conjurelava": "Conjure Lava",
 	"ars_extended_glyphs.glyph_desc.glyph_conjurelava": "Places lava at a location.",
-	"ars_extended_glyphs.glyph_name.glyph_warp": "Warp",
-	"ars_extended_glyphs.glyph_desc.glyph_warp": "Warps caster to saved location. Set the warp location by augmenting with Sensitive.",
+	"ars_extended_glyphs.glyph_name.glyph_atrophy": "Atrophy",
+	"ars_extended_glyphs.glyph_desc.glyph_atrophy": "Causes the target to suffer from weakness for a period of time.",
 
 	"item.ars_extended_glyphs.magestone": "Magestone",
 	"item.ars_extended_glyphs.refined_magestone": "Refined Magestone",

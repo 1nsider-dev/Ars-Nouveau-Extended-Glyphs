@@ -25,6 +25,7 @@ public class ArsNouveauRegistry {
         register(ReturnHome.INSTANCE);
         register(SetHome.INSTANCE);
         register(ConjureLava.INSTANCE);
+        register(Atrophy.INSTANCE);
 
         register(MethodClosestPlayer.INSTANCE);
 
