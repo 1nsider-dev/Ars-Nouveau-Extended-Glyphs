@@ -37,6 +37,11 @@
 	"item.ars_extended_glyphs.magestone": "Magestone",
 	"item.ars_extended_glyphs.refined_magestone": "Refined Magestone",
 
+	"item.ars_extended_glyphs.ring_of_greatest_discount": "Ring of Greatest Discount",
+
+	"item.ars_extended_glyphs.music_disc_record": "Music Disc",
+	"item.ars_extended_glyphs.music_disc_record.desc": "1nsider - rerecord",
+
 	"item.ars_extended_glyphs.blank_tablet": "Ancient Tablet",
 	"item.ars_extended_glyphs.air_tablet": "Tablet of Air",
 	"item.ars_extended_glyphs.water_tablet": "Tablet of Water",
@@ -58,7 +63,6 @@
 	"itemGroup.ars_extended_glyphs": "Extended Glyphs",
 
 	"tooltip.aeg.await": "Hold Left Shift for more info.",
-	"tooltip.aeg.blank_tablet.detail": "These can be found in Jungle and Desert temples, dungeons, mansions, mineshafts, and near ruined portals.",
 
 	"tooltip.aeg.blank_tablet": "A mysterious tablet from ages past...",
 	"tooltip.aeg.blank_tablet_f": "Can be enchanted to create resistance charms.",
@@ -71,6 +75,8 @@
 	"tooltip.aeg.tablet_f.fire": "Prevents fire and lava damage at the cost of mana while equipped.",
 	"tooltip.aeg.tablet_f.earth": "Prevents suffocation, slamming damage, and hot floors at the cost of mana while equipped.",
 	"tooltip.aeg.tablet_f.water": "Prevents drowning and dragon's breath damage at the cost of mana while equipped.",
+
+	"jei.aeg.blank_tablet": "Ancient Tablets can be found in Jungle and Desert temples, dungeons, mansions, mineshafts, and near ruined portals.",
 
 	"ars_extended_glyphs.adv.title.refined_magestone": "Refining Some Mage's Stone",
 	"ars_extended_glyphs.adv.desc.refined_magestone": "Acquire Refined Magestone",

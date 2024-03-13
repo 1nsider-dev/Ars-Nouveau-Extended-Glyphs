@@ -28,10 +28,5 @@ public class UselessTablet extends Item {
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip2, TooltipFlag flagIn) {
         super.appendHoverText(stack, worldIn, tooltip2, flagIn);
         tooltip2.add(Component.translatable("tooltip.aeg.blank_tablet"));
-        if (InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), Minecraft.getInstance().options.keyShift.getKey().getValue())) {
-            tooltip2.add(Component.translatable("tooltip.aeg.blank_tablet.detail"));
-        }else{
-            tooltip2.add(Component.translatable("tooltip.aeg.await"));
-        }
     }
 }

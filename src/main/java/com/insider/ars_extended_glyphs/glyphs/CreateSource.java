@@ -7,6 +7,7 @@ import com.hollingsworth.arsnouveau.api.util.SourceUtil;
 import com.hollingsworth.arsnouveau.client.particle.ParticleUtil;
 import com.hollingsworth.arsnouveau.common.spell.augment.AugmentAmplify;
 import com.hollingsworth.arsnouveau.common.spell.augment.AugmentDampen;
+import com.insider.ars_extended_glyphs.Config;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -28,7 +29,7 @@ import static com.insider.ars_extended_glyphs.Main.prefix;
 
 public class CreateSource extends AbstractEffect {
 
-    public static CreateSource INSTANCE = new CreateSource(prefix("glyph_createsource"), "Create Source");
+    public static CreateSource INSTANCE = new CreateSource(prefix("glyph_createsource"), "Conjure Source");
 
     public CreateSource(ResourceLocation tag, String description) {
         super(tag, description);
@@ -84,6 +85,6 @@ public class CreateSource extends AbstractEffect {
     @Override
     public void buildConfig(ForgeConfigSpec.Builder builder) {
         super.buildConfig(builder);
-        addGenericInt(builder, 10, "Base source mult.", "base_source_mult");
+        addGenericInt(builder, 10, "Mana to Source conversion multiplier. (default 10)", "base_source_mult");
     }
 }

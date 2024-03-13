@@ -1,18 +1,10 @@
 {
-  "example_sound": {
+  "music_disc_record": {
     "sounds": [
-      "ars_nouveau:gaia_1",
-      "ars_nouveau:gaia_2",
-      "ars_nouveau:gaia_3",
-      "ars_nouveau:gaia_4",
-      "ars_nouveau:tempestry_1",
-      "ars_nouveau:tempestry_2",
-      "ars_nouveau:tempestry_3",
-      "ars_nouveau:tempestry_4",
-      "ars_nouveau:pyro_1",
-      "ars_nouveau:pyro_2",
-      "ars_nouveau:pyro_3",
-      "ars_nouveau:pyro_4"
+      {
+        "name": "ars_extended_glyphs:music_disc_record",
+        "stream": true
+      }
     ]
   }
 }

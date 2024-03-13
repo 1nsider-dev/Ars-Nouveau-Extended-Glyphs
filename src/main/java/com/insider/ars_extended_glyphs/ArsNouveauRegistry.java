@@ -16,7 +16,6 @@ public class ArsNouveauRegistry {
         register(SummonWildlife.INSTANCE);
         register(Shield.INSTANCE);
         register(Absorption.INSTANCE);
-        register(MethodClosestPlayer.INSTANCE);
         register(Transmute.INSTANCE);
         register(Burrow.INSTANCE);
         register(SummonHostile.INSTANCE);
@@ -26,6 +25,8 @@ public class ArsNouveauRegistry {
         register(ReturnHome.INSTANCE);
         register(SetHome.INSTANCE);
         register(ConjureLava.INSTANCE);
+
+        register(MethodClosestPlayer.INSTANCE);
 
         register(TargetSelf.INSTANCE);
 
