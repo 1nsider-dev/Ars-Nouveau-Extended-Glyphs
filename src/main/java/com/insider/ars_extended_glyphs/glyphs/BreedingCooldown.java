@@ -39,7 +39,7 @@ public class BreedingCooldown extends AbstractEffect {
                 return;
 
             if (entity.isBaby()) {
-                entity.setAge((int) (entity.getAge()/1.1));
+                entity.setAge((int) (entity.getAge()/1.25));
             } else {
                 entity.setAge(0);
             }
