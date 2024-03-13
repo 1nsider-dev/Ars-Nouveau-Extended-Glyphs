@@ -1,0 +1,33 @@
+{
+  "type": "ars_nouveau:glyph",
+  "count": 1,
+  "exp": 55,
+  "inputItems": [
+    {
+      "item": {
+        "item": "ars_nouveau:earth_essence"
+      }
+    },
+    {
+      "item": {
+        "item": "ars_extended_glyphs:refined_magestone"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:clock"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:hay_block"
+      }
+    },
+    {
+      "item": {
+        "item": "minecraft:golden_carrot"
+      }
+    }
+  ],
+  "output": "ars_extended_glyphs:glyph_fertility"
+}

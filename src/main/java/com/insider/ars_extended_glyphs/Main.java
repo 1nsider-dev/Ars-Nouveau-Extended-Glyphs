@@ -22,6 +22,7 @@ import org.apache.logging.log4j.Logger;
 import top.theillusivec4.curios.Curios;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotResult;
+import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(com.insider.ars_extended_glyphs.Main.MODID)

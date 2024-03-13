@@ -1,10 +1,11 @@
 package com.insider.ars_extended_glyphs.item;
 
 import com.hollingsworth.arsnouveau.api.spell.SpellSchool;
+import com.insider.ars_extended_glyphs.Main;
 import com.insider.ars_extended_glyphs.registry.ModRegistry;
 import net.minecraft.ChatFormatting;
-import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -13,15 +14,12 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.capabilities.ICapabilityProvider;
-import net.minecraftforge.common.util.LazyOptional;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
 import java.util.List;
 
-public class Tablet extends Item implements ICapabilityProvider {
+public class Tablet extends Item implements ICurioItem {
     public Tablet(SpellSchool sch) {
         super(new Item.Properties().stacksTo(1).tab(CTab.instance));
         school = sch;
@@ -43,12 +41,6 @@ public class Tablet extends Item implements ICapabilityProvider {
         if (!stack.isEnchanted()) {
             tooltip2.add(Component.translatable("tooltip.aeg.tablet_warning").withStyle(ChatFormatting.RED));
         }
-    }
-
-
-    @Override
-    public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-        return null;
     }
 
     @Override

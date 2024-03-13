@@ -33,6 +33,8 @@
 	"ars_extended_glyphs.glyph_desc.glyph_conjurelava": "Places lava at a location.",
 	"ars_extended_glyphs.glyph_name.glyph_atrophy": "Atrophy",
 	"ars_extended_glyphs.glyph_desc.glyph_atrophy": "Causes the target to suffer from weakness for a period of time.",
+	"ars_extended_glyphs.glyph_name.glyph_fertility": "Fertility",
+	"ars_extended_glyphs.glyph_desc.glyph_fertility": "Only applicable to animals. If the animal is a baby, it will speed up the growing process. Otherwise, it will reset the breeding cooldown.",
 
 	"item.ars_extended_glyphs.magestone": "Magestone",
 	"item.ars_extended_glyphs.refined_magestone": "Refined Magestone",

@@ -6,9 +6,8 @@ import com.hollingsworth.arsnouveau.common.spell.augment.AugmentExtendTime;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraftforge.common.ForgeConfigSpec;
@@ -18,11 +17,11 @@ import java.util.Set;
 
 import static com.insider.ars_extended_glyphs.Main.prefix;
 
-public class Atrophy extends AbstractEffect {
+public class BreedingCooldown extends AbstractEffect {
 
-    public static Atrophy INSTANCE = new Atrophy(prefix("glyph_atrophy"), "Atrophy");
+    public static BreedingCooldown INSTANCE = new BreedingCooldown(prefix("glyph_fertility"), "Fertility");
 
-    public Atrophy(ResourceLocation tag, String description) {
+    public BreedingCooldown(ResourceLocation tag, String description) {
         super(tag, description);
     }
 
@@ -35,13 +34,17 @@ public class Atrophy extends AbstractEffect {
     public void onResolveEntity(EntityHitResult rayTraceResult, Level world, @Nonnull LivingEntity shooter, SpellStats spellStats, SpellContext spellContext, SpellResolver resolver) {
         super.onResolveEntity(rayTraceResult, world, shooter, spellStats, spellContext, resolver);
 
-        if (rayTraceResult.getEntity() instanceof LivingEntity entity) {
+        if (rayTraceResult.getEntity() instanceof Animal entity) {
             if (entity.isRemoved() || entity.getHealth() <= 0)
                 return;
 
-            entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, GENERIC_INT.get()+((int)spellStats.getDurationMultiplier()*100),
-                    (int) Math.max(0,spellStats.getAmpMultiplier())), shooter);
-            world.playSound(null, entity.blockPosition(), SoundEvents.WITHER_SKELETON_HURT, SoundSource.NEUTRAL, 1.0f, 1.0f);
+            if (entity.isBaby()) {
+                entity.setAge((int) (entity.getAge()/1.1));
+            } else {
+                entity.setAge(0);
+            }
+
+            world.playSound(null, entity.blockPosition(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.NEUTRAL, 1.0f, 1.0f);
         }
     }
 
@@ -49,21 +52,20 @@ public class Atrophy extends AbstractEffect {
     @Nonnull
     @Override
     public Set<AbstractAugment> getCompatibleAugments() {
-        return augmentSetOf(AugmentExtendTime.INSTANCE, AugmentAmplify.INSTANCE);
+        return augmentSetOf();
     }
     @Override
     public SpellTier defaultTier() {
-        return SpellTier.THREE;
+        return SpellTier.TWO;
     }
     @Nonnull
     @Override
     public Set<SpellSchool> getSchools() {
-        return setOf(SpellSchools.MANIPULATION);
+        return setOf(SpellSchools.ELEMENTAL_EARTH);
     }
 
     @Override
     public void buildConfig(ForgeConfigSpec.Builder builder) {
         super.buildConfig(builder);
-        addGenericInt(builder, 200, "Duration of weakness", "base_weakness");
     }
 }
