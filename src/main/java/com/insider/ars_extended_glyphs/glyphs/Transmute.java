@@ -59,6 +59,7 @@ public class Transmute extends AbstractEffect {
             Items.DIAMOND,
             Items.IRON_INGOT,
             Items.GOLD_INGOT,
+            Items.EMERALD,
             Items.COPPER_INGOT
     };
     @Override

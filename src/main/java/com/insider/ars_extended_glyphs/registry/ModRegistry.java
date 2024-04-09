@@ -1,8 +1,11 @@
 package com.insider.ars_extended_glyphs.registry;
 
+import com.google.common.collect.Multimap;
 import com.hollingsworth.arsnouveau.api.ArsNouveauAPI;
 import com.hollingsworth.arsnouveau.api.ritual.AbstractRitual;
 import com.hollingsworth.arsnouveau.api.spell.SpellSchools;
+import com.hollingsworth.arsnouveau.api.spell.SpellTier;
+import com.hollingsworth.arsnouveau.common.items.curios.AbstractManaCurio;
 import com.hollingsworth.arsnouveau.common.items.curios.DiscountRing;
 import com.hollingsworth.arsnouveau.common.util.RegistryWrapper;
 import com.insider.ars_extended_glyphs.item.*;
@@ -14,19 +17,20 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.RecordItem;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.UUID;
 
 import static com.insider.ars_extended_glyphs.Main.MODID;
 
@@ -65,6 +69,12 @@ public class ModRegistry {
         @Override
         public Collection<CreativeModeTab> getCreativeTabs() {
             return Arrays.asList(CTab.TABS);
+        }
+    });
+    public static final RegistryObject<AbstractManaCurio> AMULET_OF_GREATER_MANA_REGEN = ITEMS.register("amulet_of_greater_mana_regen", () -> new AbstractManaCurio() {
+        @Override
+        public int getManaRegenBonus(ItemStack i) {
+            return 20;
         }
     });
     public static final RegistryObject<Item> BROKEN_RECORD = ITEMS.register("music_disc_record",
