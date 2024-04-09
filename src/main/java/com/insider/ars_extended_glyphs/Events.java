@@ -87,7 +87,7 @@ public class Events {
                 });
             } else if (hasCurio(player, player.level(), ModRegistry.EARTH_TABLET_FRAG.get()) &&
                     (ev.getSource() == srcTbl.inWall() || ev.getSource() == srcTbl.flyIntoWall() || ev.getSource() == srcTbl.hotFloor())){
-                int pwr = (int) ev.getAmount()*15;
+                int pwr = (int) ev.getAmount()*20;
                 CapabilityRegistry.getMana(player).ifPresent(mana -> {
                     if (mana.getCurrentMana() > pwr) {
                         mana.removeMana(pwr);
@@ -96,7 +96,7 @@ public class Events {
                 });
             } else if (hasCurio(player, player.level(), ModRegistry.WATER_TABLET_FRAG.get()) &&
                     (ev.getSource() == srcTbl.drown() || ev.getSource() == srcTbl.dragonBreath())){
-                int pwr = 20;
+                int pwr = 45;
                 CapabilityRegistry.getMana(player).ifPresent(mana -> {
                     if (mana.getCurrentMana() > pwr) {
                         mana.removeMana(pwr);
