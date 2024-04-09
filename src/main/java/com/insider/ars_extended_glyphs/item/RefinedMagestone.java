@@ -27,13 +27,6 @@ public class RefinedMagestone extends AbstractManaCurio {
     }
 
     @Override
-    public Collection<CreativeModeTab> getCreativeTabs() {
-        Collection<CreativeModeTab> list = new ArrayList<CreativeModeTab>();
-        list.add(CTab.instance);
-        return list;
-    }
-
-    @Override
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip2, TooltipFlag flagIn) {
         super.appendHoverText(stack, worldIn, tooltip2, flagIn);
         tooltip2.add(Component.translatable("tooltip.refined_magestone"));

@@ -1,6 +1,7 @@
 package com.insider.ars_extended_glyphs;
 
 import com.hollingsworth.arsnouveau.api.ArsNouveauAPI;
+import com.hollingsworth.arsnouveau.api.registry.GlyphRegistry;
 import com.hollingsworth.arsnouveau.api.spell.AbstractSpellPart;
 import com.insider.ars_extended_glyphs.glyphs.*;
 
@@ -35,7 +36,7 @@ public class ArsNouveauRegistry {
         register(Herobrine.INSTANCE);
     }
     public static void register(AbstractSpellPart spellPart){
-        ArsNouveauAPI.getInstance().registerSpell(spellPart);
+        GlyphRegistry.registerSpell(spellPart);
         registeredSpells.add(spellPart);
     }
 

@@ -1,11 +1,13 @@
 package com.insider.ars_extended_glyphs.glyphs;
 
 import com.hollingsworth.arsnouveau.api.spell.*;
-import com.hollingsworth.arsnouveau.common.potions.ModPotions;
 import com.hollingsworth.arsnouveau.common.spell.augment.AugmentAmplify;
 import com.hollingsworth.arsnouveau.common.spell.augment.AugmentDampen;
 import com.hollingsworth.arsnouveau.common.spell.augment.AugmentSensitive;
+import com.hollingsworth.arsnouveau.setup.registry.ModPotions;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.Vec3i;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -56,7 +58,7 @@ public class SummonHostile extends AbstractEffect {
 
         if (shooter instanceof Player){
             Vec3 vector3d = safelyGetHitPos(rayTraceResult);
-            BlockPos pos = new BlockPos(vector3d);
+            BlockPos pos = new BlockPos(new Vec3i((int) vector3d.x, (int) vector3d.y, (int) vector3d.z));
 
             for (int i = 0; i < (3+spellStats.getAmpMultiplier()); i++) {
                 BlockPos blockpos = pos.offset(-2 + shooter.getRandom().nextInt(5), 1, -2 + shooter.getRandom().nextInt(5));

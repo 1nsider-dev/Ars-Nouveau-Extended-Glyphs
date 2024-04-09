@@ -16,7 +16,7 @@ import java.util.List;
 
 public class UselessTablet extends Item {
     public UselessTablet() {
-        super(new Properties().stacksTo(16).tab(CTab.instance));
+        super(new Properties().stacksTo(16));
     }
 
     @Override

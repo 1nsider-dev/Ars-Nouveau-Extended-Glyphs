@@ -2,6 +2,7 @@ package com.insider.ars_extended_glyphs.registry;
 
 import com.google.common.collect.Multimap;
 import com.hollingsworth.arsnouveau.api.ArsNouveauAPI;
+import com.hollingsworth.arsnouveau.api.registry.RitualRegistry;
 import com.hollingsworth.arsnouveau.api.ritual.AbstractRitual;
 import com.hollingsworth.arsnouveau.api.spell.SpellSchools;
 import com.hollingsworth.arsnouveau.api.spell.SpellTier;
@@ -51,13 +52,11 @@ public class ModRegistry {
         LOOT_MODIFIERS.register(bus);
 
         for (AbstractRitual rit : RITUALS){
-            ArsNouveauAPI.getInstance().registerRitual(rit);
+            RitualRegistry.registerRitual(rit);
         }
     }
-
-    private static final Item.Properties BasicProperty = new Item.Properties().tab(CTab.instance);
     public static final RegistryObject<Item> MAGESTONE = ITEMS.register("magestone",
-            () -> new Item(BasicProperty));
+            () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> REFINED_MAGESTONE = ITEMS.register("refined_magestone",
             RefinedMagestone::new);
     public static final RegistryObject<DiscountRing> RING_OF_GREATER_DISCOUNT = ITEMS.register("ring_of_greatest_discount", () -> new DiscountRing() {
@@ -65,20 +64,25 @@ public class ModRegistry {
         public int getManaDiscount() {
             return 50;
         }
-
-        @Override
-        public Collection<CreativeModeTab> getCreativeTabs() {
-            return Arrays.asList(CTab.TABS);
-        }
     });
-    public static final RegistryObject<AbstractManaCurio> AMULET_OF_GREATER_MANA_REGEN = ITEMS.register("amulet_of_greater_mana_regen", () -> new AbstractManaCurio() {
+    public static final RegistryObject<AbstractManaCurio> AMULET_OF_GREATER_MANA_POWER = ITEMS.register("amulet_of_greater_mana_power", () -> new AbstractManaCurio() {
         @Override
         public int getManaRegenBonus(ItemStack i) {
             return 20;
         }
+
+        @Override
+        public int getMaxManaBoost(ItemStack i) {
+            return 150;
+        }
+
+        @Override
+        public int getManaDiscount(ItemStack i) {
+            return 20;
+        }
     });
     public static final RegistryObject<Item> BROKEN_RECORD = ITEMS.register("music_disc_record",
-            () -> new RecordItem(6, SoundRegistry.BROKEN_RECORD, BasicProperty.rarity(Rarity.RARE).stacksTo(1), 3200));
+            () -> new RecordItem(6, SoundRegistry.BROKEN_RECORD, new Item.Properties().rarity(Rarity.RARE).stacksTo(1), 3200));
 
     // Ext.
     public static final Rarity UNIQUE_RARITY = Rarity.create("aeg_unique", ChatFormatting.DARK_AQUA);

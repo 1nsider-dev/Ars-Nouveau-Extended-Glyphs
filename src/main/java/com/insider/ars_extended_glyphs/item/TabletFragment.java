@@ -23,7 +23,7 @@ import java.util.List;
 
 public class TabletFragment extends Item implements ICapabilityProvider {
     public TabletFragment(SpellSchool sch) {
-        super(new Properties().stacksTo(1).tab(CTab.instance));
+        super(new Properties().stacksTo(1));
         school = sch;
     }
     private final SpellSchool school;

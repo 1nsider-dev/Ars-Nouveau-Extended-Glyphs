@@ -1,13 +1,10 @@
 package com.insider.ars_extended_glyphs.glyphs;
 
 import com.hollingsworth.arsnouveau.api.spell.*;
-import com.hollingsworth.arsnouveau.common.block.tile.PortalTile;
-import com.hollingsworth.arsnouveau.common.items.WarpScroll;
 import com.hollingsworth.arsnouveau.common.network.Networking;
 import com.hollingsworth.arsnouveau.common.network.PacketWarpPosition;
 import com.hollingsworth.arsnouveau.common.spell.augment.AugmentAmplify;
 import com.hollingsworth.arsnouveau.common.spell.augment.AugmentDampen;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -15,21 +12,14 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.Attribute;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.eventbus.api.Event;
-import software.bernie.ars_nouveau.shadowed.eliotlash.mclib.math.Operation;
 
 import javax.annotation.Nonnull;
 import java.util.Set;
-import java.util.Vector;
 
 import static com.insider.ars_extended_glyphs.Main.prefix;
 
@@ -58,17 +48,17 @@ public class Burrow extends AbstractEffect {
     }
     public static void warpEntity(Entity entity, Vec3 warpPos) {
         if (entity == null) return;
-        Level world = entity.level;
+        Level world = entity.level();
         if (entity instanceof LivingEntity living){
             Event event = ForgeEventFactory.onEnderTeleport(living, warpPos.x, warpPos.y, warpPos.x);
             if (event.isCanceled()) return;
         }
-        ((ServerLevel) entity.level).sendParticles(ParticleTypes.PORTAL, entity.getX(), entity.getY() + 1, entity.getZ(),
+        ((ServerLevel) world).sendParticles(ParticleTypes.PORTAL, entity.getX(), entity.getY() + 1, entity.getZ(),
                 4, (world.random.nextDouble() - 0.5D) * 2.0D, -world.random.nextDouble(), (world.random.nextDouble() - 0.5D) * 2.0D, 0.1f);
 
         entity.teleportTo(warpPos.x, warpPos.y, warpPos.z);
         Networking.sendToNearby(world, entity, new PacketWarpPosition(entity.getId(), entity.getX(), entity.getY(), entity.getZ(), entity.getXRot(), entity.getYRot()));
-        entity.level.playSound(null, entity.blockPosition(), SoundEvents.ANVIL_LAND, SoundSource.NEUTRAL, 1.0f, 1.0f);
+        world.playSound(null, entity.blockPosition(), SoundEvents.ANVIL_LAND, SoundSource.NEUTRAL, 1.0f, 1.0f);
     }
 
     @Nonnull

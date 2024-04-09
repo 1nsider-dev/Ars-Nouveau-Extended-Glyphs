@@ -1,6 +1,7 @@
 package com.insider.ars_extended_glyphs.item;
 
 import com.hollingsworth.arsnouveau.api.spell.SpellSchool;
+import com.hollingsworth.arsnouveau.common.items.curios.AbstractManaCurio;
 import com.insider.ars_extended_glyphs.Main;
 import com.insider.ars_extended_glyphs.registry.ModRegistry;
 import net.minecraft.ChatFormatting;
@@ -19,14 +20,23 @@ import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
 import java.util.List;
 
-public class Tablet extends Item implements ICurioItem {
+public class Tablet extends AbstractManaCurio implements ICurioItem {
     public Tablet(SpellSchool sch) {
-        super(new Item.Properties().stacksTo(1).tab(CTab.instance));
         school = sch;
     }
     private final SpellSchool school;
     public SpellSchool getSchool() {
         return school;
+    }
+
+    @Override
+    public int getManaRegenBonus(ItemStack i) {
+        return 2;
+    }
+
+    @Override
+    public int getMaxManaBoost(ItemStack i) {
+        return 100;
     }
 
     @Override

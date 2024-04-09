@@ -14,7 +14,7 @@ import java.util.List;
 
 public class UselessTabletFragment extends Item {
     public UselessTabletFragment() {
-        super(new Properties().stacksTo(64).tab(CTab.instance));
+        super(new Properties().stacksTo(64));
     }
 
     @Override
