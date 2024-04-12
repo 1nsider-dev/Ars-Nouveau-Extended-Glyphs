@@ -3,6 +3,7 @@ package com.insider.ars_extended_glyphs;
 import com.hollingsworth.arsnouveau.api.event.SpellCastEvent;
 import com.insider.ars_extended_glyphs.item.CTab;
 import com.insider.ars_extended_glyphs.item.Tablet;
+import com.insider.ars_extended_glyphs.loot.LootModifs;
 import com.insider.ars_extended_glyphs.registry.ModRegistry;
 import com.insider.ars_extended_glyphs.sound.SoundRegistry;
 import net.minecraft.nbt.CompoundTag;
@@ -38,6 +39,7 @@ public class Main
         IEventBus modbus = FMLJavaModLoadingContext.get().getModEventBus();
         CTab.register(modbus);
         ModRegistry.registerRegistries(modbus);
+        LootModifs.register(modbus);
         SoundRegistry.register(modbus);
         ArsNouveauRegistry.registerGlyphs();
         modbus.addListener(this::setup);

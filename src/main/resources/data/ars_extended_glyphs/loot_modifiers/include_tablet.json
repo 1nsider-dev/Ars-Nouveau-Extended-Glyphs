@@ -2,33 +2,8 @@
   "type": "ars_extended_glyphs:include_tablet",
   "conditions": [
     {
-      "condition": "alternative",
-      "terms": [
-        {
-          "condition": "forge:loot_table_id",
-          "loot_table_id": "minecraft:chests/simple_dungeon"
-        },
-        {
-          "condition": "forge:loot_table_id",
-          "loot_table_id": "minecraft:chests/desert_pyramid"
-        },
-        {
-          "condition": "forge:loot_table_id",
-          "loot_table_id": "minecraft:chests/jungle_temple"
-        },
-        {
-          "condition": "forge:loot_table_id",
-          "loot_table_id": "minecraft:chests/abandoned_mineshaft"
-        },
-        {
-          "condition": "forge:loot_table_id",
-          "loot_table_id": "minecraft:chests/ruined_portal"
-        },
-        {
-          "condition": "forge:loot_table_id",
-          "loot_table_id": "minecraft:chests/woodland_mansion"
-        }
-      ]
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/nether_bridge"
     }
   ],
   "item": "ars_extended_glyphs:blank_tablet"

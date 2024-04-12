@@ -13,6 +13,7 @@ import net.minecraftforge.common.loot.LootModifier;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Arrays;
 import java.util.function.Supplier;
 
 public class AddItemModifier extends LootModifier {
@@ -21,15 +22,21 @@ public class AddItemModifier extends LootModifier {
             .fieldOf("item").forGetter(m -> m.item)).apply(inst, AddItemModifier::new)));
     private final Item item;
 
-    protected AddItemModifier(LootItemCondition[] conditionsIn, Item item) {
+    public AddItemModifier(LootItemCondition[] conditionsIn, Item item) {
         super(conditionsIn);
         this.item = item;
     }
 
     @Override
     protected @NotNull ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
-        if(context.getRandom().nextFloat() >= 0.7f) {
-            generatedLoot.add(new ItemStack(item));
+        for(LootItemCondition condition : this.conditions) {
+            if(!condition.test(context)) {
+                return generatedLoot;
+            }
+        }
+
+        if (context.getRandom().nextFloat() >= .7F){
+            generatedLoot.add(new ItemStack(this.item));
         }
 
         return generatedLoot;
