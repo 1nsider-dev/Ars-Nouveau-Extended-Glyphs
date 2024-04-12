@@ -19,12 +19,14 @@ import java.util.function.Supplier;
 public class AddItemModifier extends LootModifier {
     public static final Supplier<Codec<AddItemModifier>> CODEC = Suppliers.memoize(()
             -> RecordCodecBuilder.create(inst -> codecStart(inst).and(ForgeRegistries.ITEMS.getCodec()
-            .fieldOf("item").forGetter(m -> m.item)).apply(inst, AddItemModifier::new)));
+            .fieldOf("item").forGetter(m -> m.item)).and(Codec.FLOAT.fieldOf("rarity").forGetter(m -> m.rarity)).apply(inst, AddItemModifier::new)));
     private final Item item;
+    private final float rarity;
 
-    public AddItemModifier(LootItemCondition[] conditionsIn, Item item) {
+    public AddItemModifier(LootItemCondition[] conditionsIn, Item item, float rarity) {
         super(conditionsIn);
         this.item = item;
+        this.rarity = rarity;
     }
 
     @Override
@@ -35,7 +37,7 @@ public class AddItemModifier extends LootModifier {
             }
         }
 
-        if (context.getRandom().nextFloat() >= .6F){
+        if (context.getRandom().nextFloat() >= this.rarity){
             generatedLoot.add(new ItemStack(this.item));
         }
 
