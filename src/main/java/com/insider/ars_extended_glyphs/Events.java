@@ -7,6 +7,8 @@ import com.hollingsworth.arsnouveau.setup.registry.CapabilityRegistry;
 import com.insider.ars_extended_glyphs.item.Tablet;
 import com.insider.ars_extended_glyphs.item.TabletFragment;
 import com.insider.ars_extended_glyphs.registry.ModRegistry;
+import net.minecraft.client.color.item.ItemColor;
+import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.damagesource.DamageType;
@@ -14,9 +16,11 @@ import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -42,6 +46,7 @@ public class Events {
         }
         return false;
     }
+
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void discountGlyph(SpellCostCalcEvent ev){
         LivingEntity entity = ev.context.getUnwrappedCaster();

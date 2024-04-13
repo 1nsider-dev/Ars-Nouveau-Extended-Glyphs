@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "ars_extended_glyphs:item/passive_caster",
+    "layer1": "ars_extended_glyphs:item/passive_caster_top"
+  }
+}

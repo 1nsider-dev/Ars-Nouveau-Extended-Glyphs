@@ -25,7 +25,7 @@ public class Repair extends AbstractEffect {
 
     @Override
     public int getDefaultManaCost() {
-        return 200;
+        return 450;
     }
 
     @Override

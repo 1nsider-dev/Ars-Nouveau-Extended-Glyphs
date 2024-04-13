@@ -81,6 +81,9 @@ public class ModRegistry {
             return 20;
         }
     });
+
+    public static final RegistryWrapper<Item> PASSIVE_CAST = new RegistryWrapper<>(ITEMS.register("passive_caster",
+            () -> new PassiveCast(new Item.Properties(), 200)));
     public static final RegistryObject<Item> BROKEN_RECORD = ITEMS.register("music_disc_record",
             () -> new RecordItem(6, SoundRegistry.BROKEN_RECORD, new Item.Properties().rarity(Rarity.RARE).stacksTo(1), 3200));
 
