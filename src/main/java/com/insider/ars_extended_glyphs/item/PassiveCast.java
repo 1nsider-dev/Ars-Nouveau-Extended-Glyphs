@@ -1,12 +1,13 @@
 package com.insider.ars_extended_glyphs.item;
 
+import com.hollingsworth.arsnouveau.api.ANFakePlayer;
 import com.hollingsworth.arsnouveau.api.item.ICasterTool;
 import com.hollingsworth.arsnouveau.api.sound.ConfiguredSpellSound;
 import com.hollingsworth.arsnouveau.api.sound.SpellSound;
-import com.hollingsworth.arsnouveau.api.spell.AbstractCastMethod;
-import com.hollingsworth.arsnouveau.api.spell.AbstractSpellPart;
-import com.hollingsworth.arsnouveau.api.spell.ISpellCaster;
-import com.hollingsworth.arsnouveau.api.spell.Spell;
+import com.hollingsworth.arsnouveau.api.spell.*;
+import com.hollingsworth.arsnouveau.api.spell.wrapped_caster.IWrappedCaster;
+import com.hollingsworth.arsnouveau.api.spell.wrapped_caster.LivingCaster;
+import com.hollingsworth.arsnouveau.api.spell.wrapped_caster.PlayerCaster;
 import com.hollingsworth.arsnouveau.api.util.NBTUtil;
 import com.hollingsworth.arsnouveau.common.crafting.recipes.IDyeable;
 import com.hollingsworth.arsnouveau.common.spell.augment.AugmentAmplify;
@@ -21,6 +22,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
@@ -57,17 +60,19 @@ public class PassiveCast extends Item implements ICasterTool {
         if (getEnabled(pStack) && (pEntity instanceof LivingEntity ent)) {
             ISpellCaster caster = getSpellCaster(pStack);
             Spell spell = caster.getSpell();
-//            CompoundTag tag = pStack.getOrCreateTag();
-//            int curTick = tag.getInt("currentTick");
-//
-//            if (curTick >= getTickSpeed(pStack)){
-//                tag.putInt("currentTick", 0);
-//                caster.castSpell(pLevel, ent, InteractionHand.MAIN_HAND, Component.empty(), spell);
-//            }else{
-//                tag.putInt("currentTick", curTick+1);
-//            }
+
+            // This is a kinda hacky solution, but I also hate that the spell doesn't get cast when looking at Block Entities - so I don't care.
             if (pLevel.getGameTime() % getTickSpeed(pStack) == 0){
-                caster.castSpell(pLevel, ent, InteractionHand.MAIN_HAND, Component.empty(), spell);
+                InteractionHand handIn = InteractionHand.MAIN_HAND;
+                if (pLevel.isClientSide) {
+                    spell = caster.modifySpellBeforeCasting(pLevel, ent, handIn, spell);
+                }
+
+                IWrappedCaster wrappedCaster = ent instanceof Player pCaster ? new PlayerCaster(pCaster) : new LivingCaster(ent);
+                Player player = ent instanceof Player thisPlayer ? thisPlayer : ANFakePlayer.getPlayer((ServerLevel) pLevel);
+                SpellResolver resolver = caster.getSpellResolver(new SpellContext(pLevel, spell, ent, wrappedCaster, pStack), pLevel, player, handIn);
+                if (resolver.onCastOnEntity(pStack, ent, handIn))
+                    caster.playSound(ent.getOnPos(), pLevel, ent, caster.getCurrentSound(), SoundSource.PLAYERS);
             }
         }
     }
