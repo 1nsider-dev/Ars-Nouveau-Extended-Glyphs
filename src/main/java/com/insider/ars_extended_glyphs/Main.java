@@ -71,8 +71,6 @@ public class Main
             event.accept(ModRegistry.WATER_TABLET_FRAG);
             event.accept(ModRegistry.EARTH_TABLET_FRAG);
 
-            event.accept(ModRegistry.BROKEN_RECORD);
-
             event.accept(ModRegistry.PASSIVE_CAST.registryObject);
         }
     }
