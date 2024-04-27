@@ -43,7 +43,7 @@ public class CreateSource extends AbstractEffect {
         worldPos = new BlockPos(worldPos.getX(),worldPos.getY()+1,worldPos.getZ());
         List<ISpecialSourceProvider> providers = SourceUtil.canGiveSource(worldPos, world, 6);
         if(!providers.isEmpty()){
-            providers.get(0).getSource().addSource((int) ((20+(spellStats.getAmpMultiplier()*10))* GENERIC_INT.get()));
+            providers.get(0).getSource().addSource((int) ((20+(spellStats.getAmpMultiplier()*10))* GENERIC_INT.get())/2);
             ParticleUtil.spawnFollowProjectile(world, worldPos, providers.get(0).getCurrentPos());
             world.playSound(null, worldPos, SoundEvents.AMETHYST_BLOCK_STEP, SoundSource.PLAYERS, 0.5f, 1.0f);
         }
