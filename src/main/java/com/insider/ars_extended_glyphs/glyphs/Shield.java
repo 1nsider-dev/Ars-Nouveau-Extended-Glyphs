@@ -27,7 +27,7 @@ public class Shield extends AbstractEffect {
 
     @Override
     public int getDefaultManaCost() {
-        return 100;
+        return 200;
     }
 
     @Override

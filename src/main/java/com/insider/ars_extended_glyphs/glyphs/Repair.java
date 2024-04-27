@@ -6,6 +6,9 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import org.jetbrains.annotations.NotNull;
@@ -25,17 +28,22 @@ public class Repair extends AbstractEffect {
 
     @Override
     public int getDefaultManaCost() {
-        return 450;
+        return 500;
     }
 
     @Override
     public void onResolveEntity(EntityHitResult rayTraceResult, Level world, @NotNull LivingEntity shooter, SpellStats spellStats, SpellContext spellContext, SpellResolver resolver) {
         super.onResolveEntity(rayTraceResult, world, shooter, spellStats, spellContext, resolver);
-        if (rayTraceResult.getEntity() instanceof LivingEntity entity) {
+        if (rayTraceResult.getEntity() instanceof Player entity) {
             if (entity.isRemoved() || entity.getHealth() <= 0)
                 return;
-            entity.getMainHandItem().setDamageValue(0);
-            world.playSound(null, entity.blockPosition(), SoundEvents.ANVIL_USE, SoundSource.PLAYERS, 0.8f, 0.9f);
+            for (ItemStack item : entity.getInventory().items) {
+                if (item.isDamaged()) {
+                    item.setDamageValue(0);
+                    world.playSound(null, entity.blockPosition(), SoundEvents.ANVIL_USE, SoundSource.PLAYERS, 0.8f, 0.9f);
+                    return;
+                }
+            }
         }
     }
 

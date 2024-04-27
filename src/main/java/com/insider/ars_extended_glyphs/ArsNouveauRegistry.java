@@ -28,6 +28,7 @@ public class ArsNouveauRegistry {
         register(ConjureLava.INSTANCE);
         register(Atrophy.INSTANCE);
         register(BreedingCooldown.INSTANCE);
+        register(BlockPosMod.INSTANCE);
 
         register(MethodClosestPlayer.INSTANCE);
 
