@@ -28,7 +28,7 @@ public class Repair extends AbstractEffect {
 
     @Override
     public int getDefaultManaCost() {
-        return 500;
+        return 250;
     }
 
     @Override
@@ -39,8 +39,8 @@ public class Repair extends AbstractEffect {
                 return;
             for (ItemStack item : entity.getInventory().items) {
                 if (item.isDamaged()) {
-                    item.setDamageValue(0);
-                    world.playSound(null, entity.blockPosition(), SoundEvents.ANVIL_USE, SoundSource.PLAYERS, 0.8f, 0.9f);
+                    item.setDamageValue(Math.max(0, item.getDamageValue()-item.getMaxDamage()/8));
+                    world.playSound(null, entity.blockPosition(), SoundEvents.ANVIL_USE, SoundSource.PLAYERS, 0.5f, 0.9f);
                     return;
                 }
             }

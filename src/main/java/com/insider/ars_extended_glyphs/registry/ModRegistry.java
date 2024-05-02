@@ -83,7 +83,7 @@ public class ModRegistry {
     });
 
     public static final RegistryWrapper<Item> PASSIVE_CAST = new RegistryWrapper<>(ITEMS.register("passive_caster",
-            () -> new PassiveCast(new Item.Properties(), 200)));
+            () -> new PassiveCast(new Item.Properties().durability(128), 200)));
 
     // Ext.
     public static final Rarity UNIQUE_RARITY = Rarity.create("aeg_unique", ChatFormatting.DARK_AQUA);

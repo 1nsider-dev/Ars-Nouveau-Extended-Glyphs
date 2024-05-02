@@ -16,6 +16,9 @@ import com.hollingsworth.arsnouveau.common.spell.augment.AugmentExtendTime;
 import com.hollingsworth.arsnouveau.common.spell.method.MethodSelf;
 import com.hollingsworth.arsnouveau.common.spell.method.MethodTouch;
 import com.hollingsworth.arsnouveau.common.util.PortUtil;
+import com.hollingsworth.arsnouveau.setup.registry.ItemsRegistry;
+import com.insider.ars_extended_glyphs.ArsNouveauRegistry;
+import com.insider.ars_extended_glyphs.glyphs.Repair;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
@@ -23,7 +26,9 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
@@ -32,7 +37,10 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -62,7 +70,7 @@ public class PassiveCast extends Item implements ICasterTool {
             Spell spell = caster.getSpell();
 
             // This is a kinda hacky solution, but I also hate that the spell doesn't get cast when looking at Block Entities - so I don't care.
-            if (pLevel.getGameTime() % getTickSpeed(pStack) == 0){
+            if (pLevel.getGameTime() % getTickSpeed(pStack) == 0 && pStack.getDamageValue() < pStack.getMaxDamage()-1){
                 InteractionHand handIn = InteractionHand.MAIN_HAND;
                 if (pLevel.isClientSide) {
                     spell = caster.modifySpellBeforeCasting(pLevel, ent, handIn, spell);
@@ -71,10 +79,24 @@ public class PassiveCast extends Item implements ICasterTool {
                 IWrappedCaster wrappedCaster = ent instanceof Player pCaster ? new PlayerCaster(pCaster) : new LivingCaster(ent);
                 Player player = ent instanceof Player thisPlayer ? thisPlayer : ANFakePlayer.getPlayer((ServerLevel) pLevel);
                 SpellResolver resolver = caster.getSpellResolver(new SpellContext(pLevel, spell, ent, wrappedCaster, pStack), pLevel, player, handIn);
-                if (resolver.onCastOnEntity(pStack, ent, handIn))
+                if (resolver.onCastOnEntity(pStack, ent, handIn)) {
                     caster.playSound(ent.getOnPos(), pLevel, ent, caster.getCurrentSound(), SoundSource.PLAYERS);
+                    if (ent instanceof ServerPlayer serverPlayer){
+                        pStack.hurt(1, pLevel.random, serverPlayer);
+                    }
+                }
             }
         }
+    }
+
+    @Override
+    public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+        return enchantment == Enchantments.UNBREAKING;
+    }
+
+    @Override
+    public boolean isValidRepairItem(@NotNull ItemStack pToRepair, ItemStack pRepair) {
+        return (pRepair.getItem() == ItemsRegistry.SOURCE_GEM.get());
     }
 
     @Override
@@ -91,7 +113,8 @@ public class PassiveCast extends Item implements ICasterTool {
                 newSpeed--;
             } else {
                 finishedFirst = true;
-                recipe.add(part);
+                if (part != Repair.INSTANCE)
+                    recipe.add(part);
             }
         }
         tag.putInt("invTickSpeed", newSpeed);
