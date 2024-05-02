@@ -31,7 +31,7 @@ public class Tablet extends AbstractManaCurio implements ICurioItem {
 
     @Override
     public int getManaRegenBonus(ItemStack i) {
-        return 2;
+        return 3;
     }
 
     @Override
@@ -48,26 +48,5 @@ public class Tablet extends AbstractManaCurio implements ICurioItem {
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip2, TooltipFlag flagIn) {
         super.appendHoverText(stack, worldIn, tooltip2, flagIn);
         tooltip2.add(Component.translatable("tooltip.aeg.tablet"));
-        if (!stack.isEnchanted()) {
-            tooltip2.add(Component.translatable("tooltip.aeg.tablet_warning").withStyle(ChatFormatting.RED));
-        }
-    }
-
-    @Override
-    public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
-        return enchantment == Enchantments.BINDING_CURSE;
-    }
-
-    @Override
-    public boolean isEnchantable(ItemStack pStack) {
-        return true;
-    }
-
-    @Override
-    public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
-        super.inventoryTick(pStack, pLevel, pEntity, pSlotId, pIsSelected);
-        if (!pStack.isEnchanted()) {
-            pStack.enchant(Enchantments.BINDING_CURSE, 1);
-        }
     }
 }

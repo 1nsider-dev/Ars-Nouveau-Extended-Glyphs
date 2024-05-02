@@ -95,6 +95,11 @@ public class PassiveCast extends Item implements ICasterTool {
     }
 
     @Override
+    public boolean isEnchantable(ItemStack pStack) {
+        return true;
+    }
+
+    @Override
     public boolean isValidRepairItem(@NotNull ItemStack pToRepair, ItemStack pRepair) {
         return (pRepair.getItem() == ItemsRegistry.SOURCE_GEM.get());
     }
