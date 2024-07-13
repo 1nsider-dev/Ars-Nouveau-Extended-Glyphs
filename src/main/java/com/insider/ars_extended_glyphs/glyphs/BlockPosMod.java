@@ -40,7 +40,7 @@ public class BlockPosMod extends AbstractEffect {
     }
 
     @Override
-    protected int getDefaultManaCost() {
+    public int getDefaultManaCost() {
         return 0;
     }
 

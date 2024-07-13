@@ -35,7 +35,7 @@ public class ConjureLava extends AbstractEffect {
 
     @Override
     public int getDefaultManaCost() {
-        return 100;
+        return 250;
     }
 
     public void onResolveBlock(BlockHitResult rayTraceResult, Level world, @NotNull LivingEntity shooter, SpellStats spellStats, SpellContext spellContext, SpellResolver resolver) {
@@ -69,7 +69,7 @@ public class ConjureLava extends AbstractEffect {
     }
     @Override
     public SpellTier defaultTier() {
-        return SpellTier.TWO;
+        return SpellTier.THREE;
     }
     @Nonnull
     @Override

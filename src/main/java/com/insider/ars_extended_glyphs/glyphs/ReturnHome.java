@@ -1,9 +1,7 @@
 package com.insider.ars_extended_glyphs.glyphs;
 
 import com.hollingsworth.arsnouveau.api.spell.*;
-import com.hollingsworth.arsnouveau.common.spell.augment.AugmentAmplify;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -11,10 +9,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.phys.EntityHitResult;
-import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
@@ -32,7 +27,7 @@ public class ReturnHome extends AbstractEffect {
 
     @Override
     public int getDefaultManaCost() {
-        return 120;
+        return 200;
     }
 
     @Override
@@ -57,7 +52,7 @@ public class ReturnHome extends AbstractEffect {
     }
     @Override
     public SpellTier defaultTier() {
-        return SpellTier.ONE;
+        return SpellTier.TWO;
     }
     @Nonnull
     @Override

@@ -33,7 +33,7 @@ public class Burrow extends AbstractEffect {
 
     @Override
     public int getDefaultManaCost() {
-        return 100;
+        return 300;
     }
 
     @Override
@@ -48,7 +48,7 @@ public class Burrow extends AbstractEffect {
     }
     public static void warpEntity(Entity entity, Vec3 warpPos) {
         if (entity == null) return;
-        Level world = entity.level();
+        Level world = entity.level;
         if (entity instanceof LivingEntity living){
             Event event = ForgeEventFactory.onEnderTeleport(living, warpPos.x, warpPos.y, warpPos.x);
             if (event.isCanceled()) return;
@@ -79,7 +79,7 @@ public class Burrow extends AbstractEffect {
 
     @Override
     public SpellTier defaultTier() {
-        return SpellTier.THREE;
+        return SpellTier.TWO;
     }
     @Nonnull
     @Override

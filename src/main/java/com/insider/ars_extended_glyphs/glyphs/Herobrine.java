@@ -4,14 +4,9 @@ import com.hollingsworth.arsnouveau.api.spell.*;
 import com.hollingsworth.arsnouveau.common.spell.augment.AugmentAmplify;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.commands.KickCommand;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.common.ForgeConfigSpec;
 import org.jetbrains.annotations.NotNull;
@@ -41,6 +36,7 @@ public class Herobrine extends AbstractEffect {
             if (ent.isRemoved() || ent.getHealth() <= 0)
                 return;
 
+            // hello!! please note that this is SPECIFICALLY targeting the SHOOTER, not the rayTraceResult!! this glyph literally just kicks the caster
             ent.connection.disconnect(Component.translatable("aeg.message.herobrine"));
         }
     }

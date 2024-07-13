@@ -9,7 +9,6 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySelector;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
@@ -20,12 +19,10 @@ import net.minecraft.world.phys.EntityHitResult;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nonnull;
 import java.util.Set;
 import java.util.function.Predicate;
 
 import static com.insider.ars_extended_glyphs.Main.prefix;
-import static net.minecraft.core.BlockPos.getY;
 
 public class MethodClosestPlayer extends AbstractCastMethod {
     public static MethodClosestPlayer INSTANCE = new MethodClosestPlayer(prefix("glyph_closestplayer"), "Closest Player");
@@ -59,7 +56,7 @@ public class MethodClosestPlayer extends AbstractCastMethod {
         Player nearestPlayer = getNearestPlayer(playerEntity, world, 16*(spellStats.getAoeMultiplier()+1), EntitySelector.NO_CREATIVE_OR_SPECTATOR);
         if (nearestPlayer!=null) {
             resolver.onResolveEffect(playerEntity.getCommandSenderWorld(), new EntityHitResult(nearestPlayer));
-            Networking.sendToNearby(playerEntity.level(), playerEntity, new PacketANEffect(PacketANEffect.EffectType.TIMED_HELIX, playerEntity.blockPosition()));
+            Networking.sendToNearby(playerEntity.level, playerEntity, new PacketANEffect(PacketANEffect.EffectType.TIMED_HELIX, playerEntity.blockPosition()));
             return CastResolveType.SUCCESS;
         }else{
             return CastResolveType.FAILURE;
@@ -73,17 +70,17 @@ public class MethodClosestPlayer extends AbstractCastMethod {
 
     @Override
     public CastResolveType onCastOnBlock(BlockHitResult blockRayTraceResult, LivingEntity caster, SpellStats spellStats, SpellContext spellContext, SpellResolver resolver) {
-        return onCast(null, caster, caster.level(), spellStats, spellContext, resolver);
+        return onCast(null, caster, caster.level, spellStats, spellContext, resolver);
     }
 
     @Override
     public CastResolveType onCastOnEntity(@Nullable ItemStack stack, LivingEntity caster, Entity target, InteractionHand hand, SpellStats spellStats, SpellContext spellContext, SpellResolver resolver) {
-        return onCast(stack, caster, caster.level(), spellStats, spellContext, resolver);
+        return onCast(stack, caster, caster.level, spellStats, spellContext, resolver);
     }
 
     @Override
     public int getDefaultManaCost() {
-        return 50;
+        return 100;
     }
 
     @Override

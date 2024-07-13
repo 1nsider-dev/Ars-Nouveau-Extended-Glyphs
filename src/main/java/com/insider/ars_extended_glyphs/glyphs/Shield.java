@@ -27,7 +27,7 @@ public class Shield extends AbstractEffect {
 
     @Override
     public int getDefaultManaCost() {
-        return 200;
+        return 250;
     }
 
     @Override
@@ -38,7 +38,7 @@ public class Shield extends AbstractEffect {
             if (entity.isRemoved() || entity.getHealth() <= 0)
                 return;
 
-            entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, GENERIC_INT.get()+((int)spellStats.getDurationMultiplier()*5), 5), shooter);
+            entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, GENERIC_INT.get()+((int)spellStats.getDurationMultiplier()*5), 3), shooter);
             world.playSound(null, entity.blockPosition(), SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.NEUTRAL, 1.0f, 1.0f);
         }
     }

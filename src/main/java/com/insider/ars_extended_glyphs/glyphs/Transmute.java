@@ -3,26 +3,20 @@ package com.insider.ars_extended_glyphs.glyphs;
 import com.hollingsworth.arsnouveau.api.item.inv.ExtractedStack;
 import com.hollingsworth.arsnouveau.api.item.inv.InventoryManager;
 import com.hollingsworth.arsnouveau.api.spell.*;
-import com.hollingsworth.arsnouveau.common.spell.augment.AugmentAmplify;
 import com.hollingsworth.arsnouveau.common.spell.augment.AugmentFortune;
-import com.hollingsworth.arsnouveau.setup.registry.ItemsRegistry;
-import com.insider.ars_extended_glyphs.registry.ModRegistry;
+import com.hollingsworth.arsnouveau.setup.ItemsRegistry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
-import net.minecraftforge.common.ForgeConfigSpec;
 
 import javax.annotation.Nonnull;
-import java.util.Map;
 import java.util.Set;
 
 import static com.insider.ars_extended_glyphs.Main.prefix;
@@ -37,7 +31,7 @@ public class Transmute extends AbstractEffect {
 
     @Override
     public int getDefaultManaCost() {
-        return 50;
+        return 100;
     }
 
     private final Item[] potItems = {
@@ -48,7 +42,6 @@ public class Transmute extends AbstractEffect {
             Items.GOLD_INGOT,
             Items.GOLD_NUGGET,
             Items.COPPER_INGOT,
-            Items.AMETHYST_SHARD,
             Items.GLOWSTONE_DUST,
             Items.BONE,
             Items.DIRT,

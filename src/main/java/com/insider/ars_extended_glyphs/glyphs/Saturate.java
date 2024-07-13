@@ -27,7 +27,7 @@ public class Saturate extends AbstractEffect {
 
     @Override
     public int getDefaultManaCost() {
-        return 80;
+        return 150;
     }
 
     @Override
@@ -42,7 +42,7 @@ public class Saturate extends AbstractEffect {
             if(entity instanceof Player player){
                 var foodData = player.getFoodData();
 
-                int maxSat = 20;
+                int maxSat = 10;
                 float curr = foodData.getSaturationLevel();
                 float toSet = curr+healVal;
                 if (toSet > maxSat) {

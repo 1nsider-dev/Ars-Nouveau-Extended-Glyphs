@@ -16,7 +16,7 @@ import static com.insider.ars_extended_glyphs.Main.prefix;
 
 public class Absorption extends AbstractEffect {
 
-    private final float maxAbsorp = 20;
+    private final float maxAbsorp = 10;
     public static Absorption INSTANCE = new Absorption(prefix("glyph_absorption"), "Absorption");
 
     public Absorption(ResourceLocation tag, String description) {
@@ -25,7 +25,7 @@ public class Absorption extends AbstractEffect {
 
     @Override
     public int getDefaultManaCost() {
-        return 150;
+        return 250;
     }
 
     @Override
