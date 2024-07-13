@@ -1,6 +1,5 @@
 package com.insider.ars_extended_glyphs;
 
-import com.hollingsworth.arsnouveau.api.ArsNouveauAPI;
 import com.hollingsworth.arsnouveau.api.registry.GlyphRegistry;
 import com.hollingsworth.arsnouveau.api.spell.AbstractSpellPart;
 import com.insider.ars_extended_glyphs.glyphs.*;
@@ -21,7 +20,6 @@ public class ArsNouveauRegistry {
         register(Burrow.INSTANCE);
         register(SummonHostile.INSTANCE);
         register(AugmentExtreme.INSTANCE);
-        register(CreateSource.INSTANCE);
         register(Repair.INSTANCE);
         register(ReturnHome.INSTANCE);
         register(SetHome.INSTANCE);
@@ -32,7 +30,6 @@ public class ArsNouveauRegistry {
 
         register(MethodClosestPlayer.INSTANCE);
 
-        register(TargetSelf.INSTANCE);
 
         register(Herobrine.INSTANCE);
     }

@@ -56,7 +56,7 @@ public class MethodClosestPlayer extends AbstractCastMethod {
         Player nearestPlayer = getNearestPlayer(playerEntity, world, 16*(spellStats.getAoeMultiplier()+1), EntitySelector.NO_CREATIVE_OR_SPECTATOR);
         if (nearestPlayer!=null) {
             resolver.onResolveEffect(playerEntity.getCommandSenderWorld(), new EntityHitResult(nearestPlayer));
-            Networking.sendToNearby(playerEntity.level, playerEntity, new PacketANEffect(PacketANEffect.EffectType.TIMED_HELIX, playerEntity.blockPosition()));
+            Networking.sendToNearby(playerEntity.level(), playerEntity, new PacketANEffect(PacketANEffect.EffectType.TIMED_HELIX, playerEntity.blockPosition()));
             return CastResolveType.SUCCESS;
         }else{
             return CastResolveType.FAILURE;
@@ -70,12 +70,12 @@ public class MethodClosestPlayer extends AbstractCastMethod {
 
     @Override
     public CastResolveType onCastOnBlock(BlockHitResult blockRayTraceResult, LivingEntity caster, SpellStats spellStats, SpellContext spellContext, SpellResolver resolver) {
-        return onCast(null, caster, caster.level, spellStats, spellContext, resolver);
+        return onCast(null, caster, caster.level(), spellStats, spellContext, resolver);
     }
 
     @Override
     public CastResolveType onCastOnEntity(@Nullable ItemStack stack, LivingEntity caster, Entity target, InteractionHand hand, SpellStats spellStats, SpellContext spellContext, SpellResolver resolver) {
-        return onCast(stack, caster, caster.level, spellStats, spellContext, resolver);
+        return onCast(stack, caster, caster.level(), spellStats, spellContext, resolver);
     }
 
     @Override

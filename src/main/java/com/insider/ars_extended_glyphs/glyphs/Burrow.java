@@ -48,7 +48,7 @@ public class Burrow extends AbstractEffect {
     }
     public static void warpEntity(Entity entity, Vec3 warpPos) {
         if (entity == null) return;
-        Level world = entity.level;
+        Level world = entity.level();
         if (entity instanceof LivingEntity living){
             Event event = ForgeEventFactory.onEnderTeleport(living, warpPos.x, warpPos.y, warpPos.x);
             if (event.isCanceled()) return;

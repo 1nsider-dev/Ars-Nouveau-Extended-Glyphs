@@ -1,8 +1,8 @@
 package com.insider.ars_extended_glyphs.glyphs;
 
 import com.hollingsworth.arsnouveau.api.spell.*;
-import com.hollingsworth.arsnouveau.common.potions.ModPotions;
 import com.hollingsworth.arsnouveau.common.spell.augment.AugmentAmplify;
+import com.hollingsworth.arsnouveau.setup.registry.ModPotions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.resources.ResourceLocation;
